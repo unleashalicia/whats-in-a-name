@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<!-- saved from url=(0073)https://knowbility.github.io/presentations/a11y-camp/judging-forms.html#/ -->
+<html lang="en" class="reveal-full-page"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>What's in a Name — AccessU 2022</title>
+
+    <link rel="stylesheet" href="./resources/reset.css">
+    <link rel="stylesheet" href="./resources/reveal.css">
+    <link rel="stylesheet" href="./resources/knowbility.css">
+	<link rel="stylesheet" href="./resources/custom.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="./resources/monokai.css">
+  <style type="text/css">.hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}</style></head>
+  <body class="reveal-viewport" style="--slide-width:960px; --slide-height:700px;">
+    <div class="reveal none center focused has-horizontal-slides ready" role="application" data-transition-speed="fast" data-background-transition="fade" style="">
+      <div class="slides" style="width: 960px; height: 700px; inset: 50% auto auto 50%; transform: translate(-50%, -50%) scale(0.463543);">
+        <section style="top: 138px; display: block;" class="present">
+          <h1>What's in a Name?</h1>
+          <p>
+            <span class="intro">Why and How to Add Accessible Names to User Interface Elements</span>
+            <span class="float-right" style="max-width: unset;">
+                Alicia Evans, AccessU 2022
+              </span>
+          </p>
+        <aside class="notes">
+
+        </aside>
+        </section>
+        <section style="top: 95px; display: block;" hidden="" aria-hidden="true" class="future">
+          <h2>Hi! I'm Alicia Evans</h2>
+          <img alt="Headshot of Alicia Evans, a fair skinned, dark haired woman with black-framed glasses." src="./resources/alicia-profile.png" class="float-right">
+          <p>Accessibility Consultant at TPGi, previously at Knowbility</p>
+          <p>Pronouns: she, her, hers</p>
+          <p>Current location: California, USA</p>
+          <aside class="notes">
+            <p>My name is Alicia Evans, and I am an Accessibility Consultant at Knowbility, a non-profit accessibility company in the United States.</p> 
+            <p>My pronouns are she, her, and hers.</p>
+            <p>I currently live in Southern California in the United States.</p>
+            <p>And I've included a photograph of myself with my father's large off-white standard poodle in a rose garden. I am a woman in my 30s with very dark long hair, pale skin, and wearing black-frame glasses.</p>
+        </aside>
+        </section>
+        <section style="top: 38.5px; display: block;" hidden="" aria-hidden="true" class="future">
+          <h2>Agenda</h2>
+          <ol>
+              <li>Intro to labels</li>
+              <li>Visible, clear, and persistent labels</li>
+              <li>Programmatically defined labels</li>
+              <li>Grouped fields</li>
+              <li>ARIA: <code>aria-label</code>, <code>aria-labelledby</code>, <code>aria-describedby</code></li>
+              <li>CSS: visually-hidden text</li>
+          </ol>
+          <aside class="notes">
+            <p>Here's an overview of what we'll be covering today.</p> 
+            <p>First we'll do a brief introduction about why labels are important.</p>
+            <p>Then we'll discuss the importance of visible, clear, and persistent labels.</p>
+            <p>Then programmatically defined labels.</p>
+            <p>Then grouped fields.</p>
+            <p>From there we'll talk through solutions for labelling that use ARIA and CSS.</p>
+            <p>For ARIA we'll look specifially at <code>aria-label</code>, <code>aria-labelledby</code>, and <code>aria-describedby</code></p>
+            <p>For CSS we'll take a look at using a visually-hidden class</p>
+        </aside>
+        </section>
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+            <h2>What labels will we be covering?</h2>
+            <ul>
+                <li><code>&lt;label&gt;</code> elements and fake <code>&lt;label&gt;</code>s</li>
+                <li>Placeholders</li>
+                <li>Legends</li>
+                <li>Buttons</li>
+            </ul>
+            <aside class="notes">
+                <p>Now, the term "label" can cover a wide range of things. </p> 
+                <p>For our purposes today, we'll talk about label elements, elements masquerading as label elements, placeholders, fieldsets with legends, and naming buttons.</p>
+            </aside>
+        </section>
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+          <h2>Why are labels important?</h2>
+          <div class="code-example no-labels">
+            <input type="text">
+            <input type="text">
+            <input type="text">
+            <input type="text">
+            <input type="text">
+          </div>
+          <aside class="notes">
+            <p>Before we talk about how to make labels accessible, let's talk about why labels are important.</p> 
+            <p>I've included an extreme example here of five input fields with no labels whatsoever.</p>
+            <p>It's possible that based on the context of this form, I could find a way to fill in all this information correctly. But it's more likely that I'll be confused, not know what I should enter, and make mistakes.</p>
+            <p>I might abandon this form altogether and decide it's not worth the trouble.</p>
+            <p>Now this is an intentionally extreme example, and it's not something I've ever seen on the web. But the examples I'll show you next are all things I've seen some variation of before, and they all make filling out forms difficult, unusable, and inaccessible form some users.</p>
+          </aside>
+        </section>
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+            <h2>Labels must be visible</h2>
+			<div class="code-example date-no-labels">
+			  <fieldset>
+				<legend>Date</legend>
+				<input type="text" aria-label="month">
+				<input type="text" aria-label="day">
+				<input type="text" aria-label="year">
+			  </fieldset>
+			</div>
+            <aside class="notes">
+                <p>Our first rule of labelling is that labels must be visible.</p>
+                <p>It might seem obvious that all form fields must have visible labels.
+                    As I said, I almost never see form fields without labels in isolation.
+                    What I do see is ambiguous fields. </p>
+                <p>In this example, I have three input fields under one date label. 
+                    You might assume that the three fields are for day, month, and year.
+                    But depending on where you are in the world, day and month might be the first and second
+                    field respectively or the other way around.</p>
+                <p>This form isn't clear to anyone, and it will be very easy to input the incorrect date.</p>
+            </aside>
+        </section>
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+            <h2>Labels must be clear</h2>
+			<div class="code-example label-not-descriptive">
+				<input type="text" id="given-name" autocomplete="given-name">
+				<input type="text" id="family-name" autocomplete="family-name">
+				<div>
+					<label for="given-name">Name</label>
+					<label for="family-name">Name</label>
+				</div>
+			</div>
+            <aside class="notes">
+                <p>The next rule is that labels must be clear.</p> 
+                <p>In this example, there are two input fields, both with the label name.</p>
+                <p>My assumption would be that one of these is given name and the other is family name, but I can't be certain which is which. This also depends on where in the world this form is coming from.</p>
+                <p>And it might be something else entirely. It might be legal name and maiden name or nickname. The labels aren't clear enough to be sure.</p>
+                <p>So when you're creating labels, always make sure that they clearly identify what information is being requested.</p>
+            </aside>
+        </section>
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+            <h2>Labels must persist</h2>
+            <p>Placeholders won't cut it!</p>
+			<div class="code-example labels-must-persist">
+				<div class="subcontainer">
+					<h2>Contact Information</h2>
+					<div>
+						<input placeholder="Name" value="A">
+						<input placeholder="Email">
+						<button type="submit">Submit</button>
+					</div>
+				</div>
+			</div>
+            <aside class="notes">
+                <p>Next we have labels must persist and placeholders won't cut it!</p> 
+                <p>Here we have a contact information form with two fields and a submit button. Neither field has a label. The second field says Email in placeholder text. The first field just has the letter "A."</p>
+                <p>This is because I've already started filling out this field. But once I fill in information, the placeholder text disappears.</p>
+                <p>If I had short-term memory loss, or I was distracted by my two year old, or had a big headache today, I might not remember what the placeholder text said.</p>
+                <p>I would have to delete the information to see the placeholder again. And if I also had pain in my hands or limited mobility in my hands, that might be painful or more difficult.</p>
+                <p>There are other issues with placeholder text as well:</p>
+                <ul>
+                    <li>Placeholder text tends to be lighter than surrounding text. This can be more difficult to see for people with low vision.</li>
+                    <li>If you increase the text contrast, then it looks like the input is already filled in, and a user might skip over it accidentally.</li>
+                    <li>Some people also use placeholder text to give field hints or formats, but the same issues apply for that as well.</li>
+                </ul>
+                <p>In general, I recommend not using placeholders at all.</p>
+            </aside>
+        </section>
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+            <h2>Labels must be programmatically defined</h2>
+            <aside class="notes">
+                <p>Now we've discussed some of the important aspects of visual labelling. But that's not the whole story.</p>
+                <p>Labels must also be programmatically defined so that assistive technology users also get the full benefits of labels.</p>
+            </aside>
+        </section>
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+            <h3>What's an accessible name?</h3>
+            <p>The <a href="https://www.w3.org/TR/accname-1.1">accessible name</a> is the name that assistive technologies communicate to users to identify an element. How does this work (on the web)?</p>
+            <ol>
+                <li>Code</li>
+                <li>Browser</li>
+                <li>Operating System (OS) / Accessibility API</li>
+                <li>Assistive Technology (AT) / User</li>
+            </ol>
+            <aside class="notes">
+                <p>To start talking about programmatically defined labels, we first have to have an understanding of the accessible name computation.</p>
+                <p>So what is an accessible name?</p>
+                <p>All of the explanations I've found tend to be really confusing, so I've tried to strip it down to the main idea.</p>
+                <p>The accessible name is the name that assistive technologies communicate to users (and vice versa) to identify an element.</p>
+                <p>By the way, all of these links are available on the slides themselves.</p>
+                <p>So, how does this work on the web?</p>
+                <ol>
+                    <li>First, a developer writes some code.</li>
+                    <li>Then the browser interprets and renders that code.</li>
+                    <li>Then the Operating System, or OS, uses the Accessibility API to send important accessibility information from the browser to the assistive technology, or AT.</li>
+                    <li>Then the AT communicates that information to users.</li>
+                </ol>
+                <p>This can be a complicated process to wrap your head around, but what I want you to take away from it is this: If you, as the developer, don't put accessibility information into the code, it's not going to magically be communicated to the user.</p>
+                <p>Hopefully this will make more sense in the next few examples.</p>
+            </aside>
+        </section>
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+            <h3>Labels that aren't programmatically defined</h3>
+			<div class="code-example prog-defined">
+				<p class="popcolor">Favorite Animal</p><br>
+				<input type="text" name="animal">
+			</div>
+            <pre data-id="code-animation" class="code-wrapper"><code class="language-html hljs xml" data-trim="" data-line-numbers=""><table class="hljs-ln"><tbody><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Favorite Animal<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"animal"</span>&gt;</span></div></td></tr></tbody></table></code></pre>
+          <aside class="notes">
+            <p>Here is our first example, where labels aren't programmatically defined.</p>
+            <p>There's an input with text above it that says "Favorite Animal."</p>
+            <p>So far, this passes all of our label rules from previous slides. It has a visible, clear, and persistent label. However, in this case, the "label" isn't coded as a <code>&lt;label&gt;</code> element. It's coded as a paragraph element.</p>
+            <p>There's nothing that programmatically ties this text, "Favorite Animal" with the input field.</p>
+            <p>Screen reader users who are tabbing through a form will not know what this field is for. They would have to read through the form from top to bottom to find all relevant information.</p>
+            <p>Similarly, speech-input users might tell their software to click on the "Favorite Animal" input. But speech input software won't recognize this as a named field. So speech-input users will have to find another way to access this field.</p>
+            <p>Now I want to show you how to check for an accessible name in the Chrome developer tools. </p>
+            <p>In the Chrome browser, you'll need to open the inspector. You can do this by right clicking an element and selecting "Inspect," or you can use your keyboard by pressing Ctrl + Shift + C or Command + Shift + C.</p>
+            <p>Highlight the element you want to inspect in the code. Then find the Accessibility tab.</p>
+            <p>(Show accessible name computation)</p>
+            <p>(Show screen reader)</p>
+        </aside>
+        </section>
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+            <h3>Labels that are programmatically defined</h3>
+			<div class="code-example prog-defined">
+				<label for="fav-animal" class="popcolor">Favorite Animal</label><br>
+				<input type="text" name="animal" id="fav-animal">
+			</div>
+            <pre data-id="code-animation" class="code-wrapper"><code class="language-html hljs xml" data-trim="" data-line-numbers=""><table class="hljs-ln"><tbody><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"fav-animal"</span>&gt;</span>Favorite Animal<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"animal"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"fav-animal"</span>&gt;</span></div></td></tr></tbody></table></code></pre>
+          <aside class="notes">
+              <p>Now let's look at the same example again, but this time the label, "Favorite Animal," is within a programmatically associated <code>&lt;label&gt;</code>element.</p>
+              <p>I'm always surprised how many developers I meet, some of them with over 20 years experience, who don't know how to programmatically associate a label. But if that's you, don't worry. I'm going to teach you how now.</p>
+              <p>So, here in the code we have the label, "Favorite Animal," within a label element. Below is the input.</p>
+              <p>This alone is not enough to associate the two. To programmatically associate the label to the input, first add a unique <code>id</code> to the input. Then add a <code>for</code> attribute to the label element with a value that matches the value of the id on the input.</p>
+              <p>In this example, the input has an id value of fav-animal, and the label has a for attribute value of fav-animal.</p>
+              <p>Now these two elements are programmatically linked, and the label names the field.</p>
+              <p>Let's take a look at our accessible name again in the Chrome developer tools.</p>
+              <p>(Look at name in dev tools)</p>
+              <p>(Show in screen reader)</p>
+          </aside>
+        </section>
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+            <h3>Grouped fields? Use a <code>&lt;fieldset&gt;</code>!</h3>
+            <div class="code-example more-fieldsets">
+                <fieldset style="display: inline;">
+                    <legend><b>Choose One Gift</b></legend>
+                    <div>
+                      <input type="radio" id="mug" name="gift" value="mug">
+                      <label for="mug">Coffee Mug</label>
+                    </div>
+                    <div>
+                      <input type="radio" id="tshirt" name="gift" value="shirt">
+                      <label for="tshirt">T-Shirt</label>
+                    </div>
+                    <div>
+                      <input type="radio" id="rubix" name="gift" value="cube">
+                      <label for="rubix">Rubix Cube</label>
+                    </div>
+                  </fieldset>
+
+                  <fieldset style="display: inline;">
+                    <legend><b>Extras</b></legend>
+                      <div>
+                        <input type="checkbox" id="card" name="extras" value="card">
+                        <label for="card">Card</label>
+                      </div>
+                      <div>
+                        <input type="checkbox" id="gift-wrap" name="extras" value="gift-wrap">
+                        <label for="gift-wrap">Gift Wrap</label>
+                      </div>
+                      <div>
+                        <input type="checkbox" id="sing-tel" name="extras" value="sing-tel">
+                        <label for="sing-tel">Singing Telegram</label>
+                     </div>
+                  </fieldset>
+            </div>
+            <aside class="notes">
+                <p>Now what should you do if you have grouped fields? Use a fieldset!</p>
+                <p>Here we have a fieldset with the legend "Choose One Gift." And within that we have three radio buttons: Coffee mug, t-shirt, and rubix cube.</p>
+                <p>These are gifts we often give away at Knowbility.</p>
+                <p>Beside it is a fieldset with the legend "Extras" which contains three checkboxes: card, gift wrap, and singing telegram. We currently don't offer these at Knowbility.</p>
+                <p>In isolation, radio buttons for coffee mug, t-shirt, and rubix cube don't make sense. Screen reader users <em>and</em> visual users all benefit from grouping related fields and providing an explanation for why they are grouped.</p>
+            </aside>
+        </section>
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+            <h4>More fieldsets</h4>
+			<div class="code-example more-fieldsets second-fieldset">
+				<fieldset>
+					<legend><b>Giver</b></legend>
+					<label for="giver-name">Name</label>
+					<input type="text" autocomplete="name" id="giver-name">
+					<label for="giver-email">Email</label>
+					<input type="text" autocomplete="email" id="giver-email">
+				</fieldset>
+
+				<fieldset>
+					<legend><b>Receiver</b></legend>
+					<label for="receiver-name">Name</label>
+					<input type="text" id="receiver-name">
+					<label for="receiver-email">Email</label>
+					<input type="text" id="receiver-email">
+				</fieldset>
+			</div>
+            <aside class="notes">
+                <p>Next we have more fieldset examples</p>
+                <p>Let's say that the gift service from the last slide required information about the gift giver and the gift receiver.</p>
+                <p>Here we have two feildsets, one that says Giver and one that says Receiver. Both contain name and email fields. Without these fieldsets, a screen reader user tabbing through the fields would find name and email fields twice without any differentiation. Fieldsets with legends provide context for these fields.</p>
+            </aside>
+        </section>
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+            <h4>Fieldsets in code</h4>
+            <div class="code-example"> 
+                <pre data-id="code-animation" class="code-wrapper"><code class="language-html hljs xml" data-trim="" data-line-numbers=""><table class="hljs-ln"><tbody><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-tag">&lt;<span class="hljs-name">fieldset</span>&gt;</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">	<span class="hljs-tag">&lt;<span class="hljs-name">legend</span>&gt;</span>Giver<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">	<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"giver-name"</span>&gt;</span>Name<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">	<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">autocomplete</span>=<span class="hljs-string">"name"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"giver-name"</span>&gt;</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">	<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"giver-email"</span>&gt;</span>Email<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">	<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">autocomplete</span>=<span class="hljs-string">"email"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"giver-email"</span>&gt;</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-tag">&lt;/<span class="hljs-name">fieldset</span>&gt;</span></div></td></tr></tbody></table></code></pre>
+            </div>
+        </section>
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+            <h3>ARIA</h3>
+            <p>Accessible Rich Internet Applications</p>
+            <img src="./resources/wizard.png" alt="Illustration of Merlin the wizard casting a spell over the sword in the stone.">
+            <aside class="notes">
+                <p>And with that, we've finished our section on HTML labelling and are not moving on to ARIA, or Accessible Rich Internet Applications.</p>
+                <p>Here I've included an illustration of Merlin the wizard casting a spell over the sword in the stone.</p>
+                <p>And the reason for that is that people often think of ARIA as magic. Either it's too complex, and they're afraid to touch it, or it's an all-powerful tool that will instantly solve all of your accessibility issues.</p>
+                <p>Hopefully after this section you'll get a good idea of how to use or not use ARIA.</p>
+                <p>Before we move on, the first rule of ARIA is that you shouldn't use it at all... unless you have to. Then use it. But if there's an HTML solution, always go to that solution first.</p>
+            </aside>
+        </section>
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+            <h4>What is ARIA?</h4>
+            <blockquote cite="./resources/saved_resource">
+            <p>
+                WAI-ARIA, the Accessible Rich Internet Applications Suite, defines a way to make Web content and Web applications
+                more accessible to people with disabilities. It especially helps with dynamic content and advanced user interface
+                controls developed with HTML, JavaScript, and related technologies.
+            </p>
+          </blockquote>
+          <aside class="notes">
+              <p>Before we talk about how to use ARIA, we should know what it is. According to the WAI-ARIA website (that's W.A.I dash A.R.I.A):</p>
+              <p>Emphasis mine: <q>WAI-ARIA, the Accessible Rich Internet Application Suite, defines <em>a way</em> to make web content and web applications more accessible to people with disabilities. It especially helps with dynamic content and the advanced user interface controls developed with HTML, JavaScript, and related technologies.</q></p>
+              <p>There are two main take aways here. The first is that ARIA is only one way to make things more accessible. There are other solutions as well.</p>
+              <p>The other is that ARIA is especially useful for dynamic and complex content. That's where it should mostly be used. But there are other occasions, as we'll explore in the next slides, where it's okay to use some ARIA.</p>
+          </aside>
+        </section>
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+            <h3>Button vs ARIA Button</h3>
+			<div class="code-example aria-buttons">
+				<button type="button" class="real-button">Button</button>
+				<div role="button" class="fake-button">ARIA Button</div>
+			</div>
+            <pre data-id="code-animation" class="code-wrapper">            <code class="language-html hljs xml" data-trim="" data-line-numbers=""><table class="hljs-ln"><tbody><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span>&gt;</span>Button<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span></span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">     <span class="hljs-attr">onclick</span>=<span class="hljs-string">"doSomething();"</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">     <span class="hljs-attr">onkeyup</span>=<span class="hljs-string">"doSomething();"</span>&gt;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">  ARIA Button</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></div></td></tr></tbody></table></code>
+            </pre>
+            <aside class="notes">
+                <p>Before we dive in, here is my favorite example of why you shouldn't rush to ARIA.</p>
+                <p>On this page, I have a button element with the text button, and a button made out of ARIA with the text ARIA Button</p>
+                <p>For the HTML button, the code is a button element type button with the text "Button" inside it. This button is accessible, and there's nothing we need to add to it.</p>
+                <p>But I see a lot of developers try to make buttons out of divs or links. In this case, there's a div with some ARIA added, in this case, <code>role="button"</code>. If it were that simple, that would be great. But ARIA isn't all-powerful. A lot more needs to be added to this div to transform it into a button:</p>
+                <ul>
+                    <li>It needs to be reachable by keyboard. That means adding <code>tabindex="0"</code>.</li>
+                    <li>It needs to activate when a user clicks the Spacebar, so there needs to be a key event listener as well as a click event listener.</li>
+                    <li>We don't want the Spacebar to scroll the page if it's used to activate the control, so you would need to prevent default</li>
+                    <li>You need to change the curser to the expected arrow curser.</li>
+                    <li>And if you are using custom focus styles, you'll need to include elements with <code>role="button"</code> or <code>tabindex="0"</code> as well as other interactive elements.</li>
+                </ul>
+                <p>So when you use the proper HTML elements, all the accessibility features are already baked in. If you try to transform one element into another, you need to add a lot more accessibility features to it, and you might accidentally forget some.</p>
+                <p>Please always use button elements for buttons, and always use the correct HTML element rather than reaching for ARIA.</p>
+            </aside>
+        </section>
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+            <h3><code>aria-label</code></h3>
+            <ul>
+                <li>One way to provide an accessible name</li>
+                <li>Use where there is no visible text for an element</li>
+                <li>Doesn't work consistently on all elements</li>
+                <li>Will overwrite content: Use caution!</li>
+                <li>Format: <code>aria-label="value"</code></li>
+            </ul>
+            <aside class="notes">
+                <p>I think that's enough disclaimers for now, so let's jump into our ARIA labelling solutions.</p>
+                <p>The first technique we'll look at is using <code>aria-label</code>.</p>
+                <ol>
+                    <li><code>aria-label</code> is one way to provide an accessible name, and that's true of all of our examples today.</li>
+                    <li>Reach for <code>aria-label</code> when there's no visible text on the page that can be used as a label</li>
+                    <li>Some words of caution: Aria labelling doesn't work consistently on all elements, so don't use it on a div or span. Only use it for elements that have an implicit or explicit role. No generic elements.</li>
+                    <li>As we saw in the accessible name computation, adding an <code>aria-label</code> or <code>aria-labelledby</code> will overwrite any existing name. So use aria labelling with extreme caution.</li>
+                    <li>And the format for <code>aria-label</code> is aria dash label equals and the whatever you want the accessible name to be in quotes.</li>
+                </ol>
+                <p>Let's look at an example.</p>
+            </aside>
+        </section>
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+            <h4><code>aria-label</code> example</h4>
+			<div class="code-example aria-label-ex">
+				<button class="button button--icon" type="submit" aria-label="Search">
+					<svg width="25" height="33" viewBox="0 0 25 33" aria-hidden="true" focusable="”false”" style="display: block; margin: auto; height: 0.75em;">
+						<g transform="matrix(-1 0 0 1 21 -3)" fill="none" fill-rule="evenodd">
+							<path d="M8.069 18.237l2.015.54-3.473 12.962-2.016-.54L8.07 18.237zm2.015.54l2.016.54L8.627 32.28l-2.016-.54 3.473-12.962z" fill="currentColor"></path>
+							<ellipse stroke="currentColor" stroke-width="4" transform="rotate(15 11.502 12.378)" cx="11.502" cy="12.378" rx="7.391" ry="7.29"></ellipse>
+						</g>
+					</svg>
+				</button>
+			</div>
+            <pre data-id="code-animation" class="code-wrapper"><code class="language-html hljs xml" data-trim="" data-line-numbers=""><table class="hljs-ln"><tbody><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Search"</span>&gt;</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">    ...</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></div></td></tr></tbody></table></code></pre>
+            <aside class="notes">
+                <p>So here is our <code>aria-label</code> example. We have a button with a magnifying glass on it. This button is used with a search form on the Knowbility website.</p>
+                <p>The magnifying glass is an svg. We're going to use an <code>aria-label</code> to name this button.</p>
+                <p>So we add <code>aria-label="search"</code> to the button itself. Now this button will be announced by screen readers as a search button.</p>
+                <p>We don't want to call it magnifying glass because that doesn't make as much sense in context.</p>
+            </aside>
+        </section>
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+            <h3><code>aria-labelledby</code></h3>
+            <ul>
+                <li>Use to associate visible text with the element</li>
+                <li>Format: <code>aria-labelledby="id1 id2 id3"</code> — space separated id values</li>
+            </ul>
+            <aside class="notes">
+                <p>Now let's look at <code>aria-labelledby</code>.</p>
+                <p>The main functional difference between <code>aria-label</code> and <code>aria-labelledby</code> is that you should use <code>aria-labelledby</code> when there is visible text on the page that could name the element.</p>
+                <p>And the format of <code>aria-labelledby</code> is <code>aria-labelledby</code> (with two L's) equals, and then in quotes, space separated id values. So in this example, I have aria dash labelledby equals "id1 (space) id2 (space) id3"</p>
+                <p>This should make more sense once we see it in action.</p>
+            </aside>
+        </section>
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+            <h4><code>aria-labelledby</code> example</h4>
+			<div class="code-example aria-labelledby-ex">
+				<label for="search" id="search-label">Search</label><br>
+				<input id="search">
+				<button class="button button--icon" type="submit" aria-labelledby="search-label">
+					<svg width="25" height="33" viewBox="0 0 25 33" aria-hidden="true" focusable="”false”" style="display: block; margin: auto; height: 0.75em;">
+						<g transform="matrix(-1 0 0 1 21 -3)" fill="none" fill-rule="evenodd">
+							<path d="M8.069 18.237l2.015.54-3.473 12.962-2.016-.54L8.07 18.237zm2.015.54l2.016.54L8.627 32.28l-2.016-.54 3.473-12.962z" fill="currentColor"></path>
+							<ellipse stroke="currentColor" stroke-width="4" transform="rotate(15 11.502 12.378)" cx="11.502" cy="12.378" rx="7.391" ry="7.29"></ellipse>
+						</g>
+					</svg>
+				</button>
+			</div>
+            <pre data-id="code-animation" class="code-wrapper"><code class="language-html hljs xml" data-trim="" data-line-numbers=""><table class="hljs-ln"><tbody><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"search"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"search-label"</span>&gt;</span>Search<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"search"</span>&gt;</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"search-label"</span>&gt;</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">    ...</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></div></td></tr></tbody></table></code></pre>
+            <aside class="notes">
+                <p>Here we have the same search button, but now there's a form label that says "Search." This label can label both the input and the search button.</p>
+                <p>To do that, you need to add a unique <code>id</code> to the text element you want to target, in this case the <code>&lt;label&gt;</code>
+            </p></aside>
+        </section>
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+            <h3><code>aria-describedby</code></h3>
+            <ul>
+                <li><q>An <a href="https://www.w3.org/TR/accname-1.1/#dfn-accessible-description">accessible description</a> provides additional information, related to an interface element, that complements the accessible name.</q></li>
+                <li><code>aria-describedby</code> is one way to provide an accessible description</li>
+                <li>Format: <code>aria-describedby="id1 id2 id3"</code> — space separated id values</li>
+            </ul>
+            <aside class="notes">
+                <p>Okay, next let's talk about the <code>aria-describedby</code> attribute.</p>
+                <p>Here's another quote from the W3C. All these links are available in the slides. <q>An aria description provides additional information, related to an interface element, that complements the accessible name.</q> </p>
+                <p><code>aria-describedby</code> is one way of adding an accessible description. An accessible description can be provided in addition to an accessible name. It doesn't replace it.</p>
+                <p>The format for <code>aria-describedby</code> is the same as <code>aria-labelledby</code>. It's aria dash describedby equals and then space separated id values.</p>
+            </aside>
+        </section>
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+            <h4><code>aria-describedby</code> example</h4>
+			<div class="code-example password-example">
+				<label for="pw">Password</label><br>
+				<input aria-describedby="pw-reqs" type="text" name="password" id="pw"><br>
+				<small id="pw-reqs" class="popcolor">Must be at least 8 characters</small>
+			</div>
+            <pre data-id="code-animation" class="code-wrapper"><code class="language-html hljs xml" data-trim="" data-line-numbers=""><table class="hljs-ln"><tbody><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"pw"</span>&gt;</span>Password<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">aria-describedby</span>=<span class="hljs-string">"pw-reqs"</span> </span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">       <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">       <span class="hljs-attr">name</span>=<span class="hljs-string">"password"</span> </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">       <span class="hljs-attr">id</span>=<span class="hljs-string">"pw"</span>&gt;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-tag">&lt;<span class="hljs-name">small</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"pw-reqs"</span>&gt;</span>Must be at least 8 characters<span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span></div></td></tr></tbody></table></code></pre>
+            <aside class="notes">
+                <p>In this example, we have a password field with the label "Password." And then below that are instructions: "Must be at least 8 characters."</p>
+                <p>A screen reader user tabbing through fields won't encounter these instructions because they're not programmatically associated with the field</p>
+                <p>Even a screen reader user reading top to bottom would not encounter these instructions until after they fill in the field.</p>
+                <p>So, we have to programmatically associate them.</p>
+                <p>To do that, we add a unique id to the element that contains the instructions. In this case, we have a small element. Then you add <code>aria-describedby</code> to the input itself with a value that matches the id value of the instructions.</p>
+                <p>If this input also had an error message on it, then you could add the id value of the error message in the <code>aria-describedby</code> value separated by a space.</p>
+            </aside>
+        </section>
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+            <h3>CSS solution: visually-hidden text</h3>
+            <ul>
+                <li>Use <code>display:none</code> or <code>visibility:hidden</code> to hide content that should be hidden from everyone. Don't rely on opacity, hiding off-screen, or clipped text if the content should be hidden for all users</li>
+                <li>Use a <a href="https://www.a11yproject.com/posts/2013-01-11-how-to-hide-content/">visually-hidden</a> or similar class to hide content visually that adds context for screen reader users</li>
+            </ul>
+            <aside class="notes">
+                <p>Okay, we're on our last technique. The CSS solution: visually-hidden text</p>
+                <p>I will say first that if your intention is to hide content from all users, then use <code>display:none</code> or <code>visibility:hidden</code>. This will hide it from everyone, including assistive technology users. If you use opacity, hide things off-screen, or clip text, that content will still be available to assistive technology users and could cause problems.</p>
+                <p>On the flip side of that, don't use <code>display:none</code> or <code>visibility:hidden</code> to hide things visually but expect screen reader users to access them. They will still be hidden from everyone.</p>
+                <p>Instead, use a visually-hidden or similar class to hide content visually but add context for screen reader users.</p>
+            </aside>
+        </section>
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+            <h4>Visually-hidden text example</h4>
+			<div class="code-example visually-hidden-ex">
+				<button class="button button--icon" type="submit">
+					<span class="visually-hidden">Search</span>
+					<svg width="25" height="33" viewBox="0 0 25 33" aria-hidden="true" focusable="”false”" style="display: block; margin: auto; height: 0.75em;">
+						<g transform="matrix(-1 0 0 1 21 -3)" fill="none" fill-rule="evenodd">
+							<path d="M8.069 18.237l2.015.54-3.473 12.962-2.016-.54L8.07 18.237zm2.015.54l2.016.54L8.627 32.28l-2.016-.54 3.473-12.962z" fill="currentColor"></path>
+							<ellipse stroke="currentColor" stroke-width="4" transform="rotate(15 11.502 12.378)" cx="11.502" cy="12.378" rx="7.391" ry="7.29"></ellipse>
+						</g>
+					</svg>
+				</button>
+			</div>
+            <pre data-id="code-animation" class="code-wrapper"><code class="language-html hljs xml" data-trim="" data-line-numbers=""><table class="hljs-ln"><tbody><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"visually-hidden"</span>&gt;</span>Search<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">    ...</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></div></td></tr></tbody></table></code></pre>
+            <aside class="notes">
+                <p>And here is our visually-hidden text example.</p>
+                <p>This is the same search button from earlier. This time instead of using <code>aria-label</code>, we've put some visually-hidden text within the button. We added a span within the button with the class visually-hidden, which will be shown on the next slide. So now the button has the text "Search" within it, but the button still shows only a magnifying glass visually. I prefer this method of adding an accessible name over adding an <code>aria-label</code>, but either way works.</p>
+            </aside>
+        </section>
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+            <h4>Visually-hidden text code</h4>
+            <p>Code and explanation: <a href="https://www.a11yproject.com/posts/2013-01-11-how-to-hide-content/">The A11y Project</a>.</p>
+            <div class="code-example">
+                <pre data-id="code-animation" class="code-wrapper"><code class="language-css hljs" data-trim="" data-line-numbers=""><table class="hljs-ln"><tbody><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-selector-class">.visually-hidden</span> {</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">    <span class="hljs-attribute">clip</span>: <span class="hljs-built_in">rect</span>(<span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span>);</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">    <span class="hljs-attribute">clip-path</span>: <span class="hljs-built_in">inset</span>(<span class="hljs-number">50%</span>);</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">    <span class="hljs-attribute">height</span>: <span class="hljs-number">1px</span>;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">    <span class="hljs-attribute">overflow</span>: hidden;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">    <span class="hljs-attribute">position</span>: absolute;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">    <span class="hljs-attribute">white-space</span>: nowrap;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="8"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">    <span class="hljs-attribute">width</span>: <span class="hljs-number">1px</span>;</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="9"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">}</div></td></tr></tbody></table></code></pre>
+            </div>
+            <aside class="notes">
+                <p>And on this slide I've shared the code for the visually-hidden class. The code and explanation are both available from the A11y Project post on how to hide content. This link is available in the slides, as is the code. I won't read it out loud, but it is available.</p>
+            </aside>
+        </section>
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+            <h2>Thank you!</h2>
+            <ul>
+                <li>Email: <a href="mailto:alicia@knowbility.org">alicia@knowbility.org</a></li>
+                <li>Join me at <a href="https://knowbility.org/programs/accessu-2022">AccessU 2022</a>!</li>
+                <li>Check out <a href="https://knowbility.org/">Knowbility</a></li>
+            </ul>
+            <aside class="notes">
+                <p>And that's it! Thank you so much everyone. Please be in touch.</p>
+                <p>My email address is alicia@knowbility.org</p>
+                <p>I'll be presenting at AccessU 2022 in May in Austin Texas. We're doing a hybrid conference this year, so you can also join virtually. AccessU is a learning conference that can help you learn all about accessibility. I hope to see you there!</p>
+                <p>And please check out Knowbility. We're a non-profit, and we've been working in accessibility for over 20 years.</p>
+                <p>Thank you and take care!</p>
+            </aside>
+          </section>
+
+
+
+
+
+    </div>
+
+    <script src="./resources/reveal.js"></script>
+    <script src="./resources/notes.js"></script>
+    <script src="./resources/markdown.js"></script>
+    <script src="./resources/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+
+      var shownotes = window.location.search.includes("notes");
+
+      Reveal.initialize({
+        controls: shownotes,
+        showNotes: shownotes,
+        progress: true,
+        history: true,
+        center: true,
+        hash: true,
+        transition: "none", // none/fade/slide/convex/concave/zoom
+        transitionSpeed: "fast",
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script><div class="backgrounds"><div class="slide-background present" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-number" style="display: none;"></div><aside class="controls" data-controls-layout="bottom-right" data-controls-back-arrows="faded" style="display: none;"><button class="navigate-left" aria-label="previous slide" disabled="disabled"><div class="controls-arrow"></div></button>
+			<button class="navigate-right enabled highlight" aria-label="next slide"><div class="controls-arrow"></div></button>
+			<button class="navigate-up" aria-label="above slide" disabled="disabled"><div class="controls-arrow"></div></button>
+			<button class="navigate-down" aria-label="below slide" disabled="disabled"><div class="controls-arrow"></div></button></aside><div class="progress" style="display: block;"><span style="transform: scaleX(0);"></span></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"></div><div class="aria-status" aria-live="polite" aria-atomic="true" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px);">Judging Forms by Their Labels A11y Camp 2021 Alicia Evans, Knowbility.org </div>
+  
+
+</div></body></html>

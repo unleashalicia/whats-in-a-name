@@ -1,0 +1,189 @@
+div.code-example {
+	border-top: 2px dashed;
+	padding-top: 2rem;
+}
+
+div.code-example:not(:last-child) {
+	margin-bottom: 4rem;
+}
+
+div.code-example.password-example {
+	margin-bottom: 0rem;
+}
+
+div.code-example .popcolor,
+div.code-example legend,
+div.code-example label {
+	color: var(--orange-light);
+}
+
+div.code-example button,
+div.code-example input {
+	font-size: 1em;
+	border: 3px solid var(--orange-light);
+}
+
+div.code-example label {
+	display: inline-block;
+}
+
+div.code-example input {
+	padding-left: 10px;
+}
+
+div.code-example button {
+	background-color: var(--blue);
+	color: white;
+	text-align: center;
+	border: 0;
+	padding: 15px;
+	border-radius: 5px;
+}
+
+div.code-example label,
+div.code-example legend {
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.no-labels input {
+	margin: auto;
+	margin-bottom: 10px;
+	display: block;
+}
+
+.date-no-labels input {
+	width: 20%;
+}
+
+.label-not-descriptive label,
+.label-not-descriptive input {
+	width: 45%;
+	display: inline-block;
+}
+
+.label-not-descriptive label:last-child {
+	margin-left: 20px;
+}
+
+.labels-must-persist .subcontainer {
+	width: 50%;
+	min-width: 300px;
+	margin: 0 auto;
+}
+
+.labels-must-persist .subcontainer input {
+	border: 3px solid var(--blue);
+}
+
+.labels-must-persist h2 {
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+.labels-must-persist input {
+	width: calc(100% - 18px);
+	margin-bottom: 10px;
+}
+
+.code-example.labels-must-persist button {
+	width: 100%;
+	margin: 5px 0px;
+}
+
+.prog-defined label,
+.prog-defined p {
+	margin: 10px 0 !important;
+	display: inline-block;
+	line-height: 1.1em;
+}
+
+.more-fieldsets {
+	text-align: center;
+}
+
+.more-fieldsets fieldset {
+	display: inline-block;
+	width: 45%;
+	border: 1px solid var(--orange-light);
+	padding: 15px;
+	text-align: left;
+	vertical-align: top;
+}
+
+.more-fieldsets fieldset:first-child {
+	margin-right: 10px;
+}
+
+.more-fieldsets fieldset legend {
+	margin-left: 15px;
+}
+
+.more-fieldsets fieldset input {
+	margin-bottom: 15px;
+}
+
+.more-fieldsets.second-fieldset fieldset input {
+	width: 96%;
+}
+
+.aria-buttons button.real-button,
+.aria-buttons div.fake-button,
+.buttons button {
+	padding: 15px;
+	line-height: 1.125em;
+	font-family: var(--font-sans);
+}
+
+.aria-buttons div.fake-button {
+	color: white;
+	background-color: var(--green);
+	text-align: center;
+	display: inline-block;
+	vertical-align: top;
+	border-radius: 5px;
+	cursor: default;
+}
+
+div.visually-hidden-ex button,
+div.aria-label-ex button,
+div.aria-labelledby-ex button {
+	padding: 15px;
+	cursor: pointer;
+}
+
+div.aria-labelledby-ex button {
+	padding: 12px 15px;
+}
+
+.aria-labelledby-ex * {
+	vertical-align: middle;
+}
+
+.reveal a {
+	text-decoration: underline;
+}
+
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+li::marker, li::before {
+	color: var(--orange-light);
+}
+
+input[type=radio], input[type=checkbox] {
+	height: 0.5em;
+	width: 0.5em;
+}
+
+:not(pre) > code {
+	color: var(--orange-light);
+	font-family: monospace;
+}

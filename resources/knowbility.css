@@ -1,0 +1,796 @@
+/**
+ * Solarized Dark theme for reveal.js.
+ * Author: Achim Staebler
+ */
+@import url("https://use.typekit.net/wmc2xjv.css");
+/**
+ * Solarized colors by Ethan Schoonover
+ */
+
+html * {
+  color-profile: sRGB;
+  rendering-intent: auto;
+}
+
+section.has-light-background,
+section.has-light-background h1,
+section.has-light-background h2,
+section.has-light-background h3,
+section.has-light-background h4,
+section.has-light-background h5,
+section.has-light-background h6 {
+  color: #222;
+}
+
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+:root {
+  --font-sans: "mr-eaves-xl-modern-narrow", "Tahoma", "Arial", sans-serif;
+  --font-serif: "alda", "Verdana", "Arial", serif;
+
+  --knowbility: #6e2f75;
+
+  --white: #fff;
+  --grey-light-very-very: #fafafb;
+  --grey-light-very: #f2f2f3;
+  --grey-light: #e5e6e7;
+  --grey: #bbbdbf;
+  --grey-line: #949595;
+  --grey-dark: #626366;
+  --grey-dark-very: #121313;
+  --black: var(--grey-dark-very);
+
+  --purple-light: #d3c5d5;
+  --purple: #6e2f75;
+  --purple-dark: #522358;
+  --purple-very-dark: #36173a;
+
+  --blue-light: #66b9e7;
+  --blue: #397193;
+  --blue-dark: #08364e;
+  --blue-very-dark: #062434;
+
+  --red-light: #ff6a6f;
+  --red: #d7141b;
+  --red-dark: #b61116;
+  --red-very-dark: #6b090d;
+
+  --green-light: #49c168;
+  --green: #0a7039;
+  --green-dark: #07542a;
+  --green-very-dark: #053d1f;
+
+  --yellow-light: #fff152;
+  --yellow: #ffdd17;
+  --yellow-dark: #bfa511;
+  --yellow-very-dark: #806e0b;
+
+  --orange-light: #ffb34e;
+  --orange: #ec7e22;
+  --orange-dark: #b15e19;
+  --orange-very-dark: #753e10;
+
+  --teal-light: #8cddce;
+  --teal: #45d0b5;
+  --teal-dark: #05ac8c;
+  --teal-very-dark: #007e66;
+
+  --r-background-color: var(--purple-very-dark);
+  --r-main-font: var(--font-serif);
+  --r-main-font-size: 40px;
+  --r-main-color: var(--grey-light-very-very);
+  --r-block-margin: 0.5em;
+  --r-heading-margin: 0 0 20px 0;
+  --r-heading-font: var(--font-sans);
+  --r-heading-color: var(--grey-light);
+  --r-heading-alt-color: var(--white);
+  --r-heading-line-height: 1;
+  --r-heading-letter-spacing: normal;
+  --r-heading-text-transform: none;
+  --r-heading-text-shadow: none;
+  --r-heading-font-weight: bold;
+  --r-heading1-text-shadow: none;
+  --r-heading1-size: 4em;
+  --r-heading1-font-weight: bold;
+  --r-heading2-size: 2.75em;
+  --r-heading2-font-weight: normal;
+  --r-heading3-size: 2em;
+  --r-heading3-font-weight: bold;
+  --r-heading4-size: 2em;
+  --r-heading4-font-weight: normal;
+  --r-heading5-size: 1.5em;
+  --r-heading5-font-weight: bold;
+  --r-heading6-size: 1.2em;
+  --r-heading6-font-weight: bold;
+  --r-code-font: monospace;
+  --r-link-color: var(--blue-light);
+  --r-link-color-dark: #1a6091;
+  --r-link-color-hover: var(--yellow);
+  --r-selection-background-color: var(--blue);
+  --r-selection-color: var(--white);
+}
+
+.reveal-viewport {
+  background: #002b36;
+  background-color: var(--r-background-color);
+}
+
+.reveal {
+  font-family: var(--r-main-font);
+  font-size: var(--r-main-font-size);
+  font-weight: normal;
+  color: var(--r-main-color);
+}
+
+.reveal .slides {
+  text-align: left;
+}
+
+.reveal .slides section {
+  max-height: 100%;
+}
+
+.reveal ::selection {
+  color: var(--r-selection-color);
+  background: var(--r-selection-background-color);
+  text-shadow: none;
+}
+
+.reveal ::-moz-selection {
+  color: var(--r-selection-color);
+  background: var(--r-selection-background-color);
+  text-shadow: none;
+}
+
+.reveal .slides section,
+.reveal .slides section > section {
+  line-height: 1.3;
+  font-weight: inherit;
+}
+
+/*********************************************
+ * HEADERS
+ *********************************************/
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  margin: var(--r-heading-margin);
+  color: var(--r-heading-color);
+  font-family: var(--r-heading-font);
+  font-weight: var(--r-heading-font-weight);
+  line-height: var(--r-heading-line-height);
+  letter-spacing: var(--r-heading-letter-spacing);
+  text-transform: var(--r-heading-text-transform);
+  text-shadow: var(--r-heading-text-shadow);
+  word-wrap: break-word;
+}
+
+.reveal h1 {
+  font-size: var(--r-heading1-size);
+  font-weight: var(--r-heading1-font-weight);
+}
+
+.reveal h2 {
+  font-size: var(--r-heading2-size);
+  font-weight: var(--r-heading2-font-weight);
+  color: var(--r-heading-alt-color);
+}
+
+.reveal h3 {
+  font-size: var(--r-heading3-size);
+  font-weight: var(--r-heading3-font-weight);
+}
+
+.reveal h3 strong {
+  color: var(--orange-light)
+}
+
+.reveal h3 code {
+  font-size: .75em;
+}
+
+.reveal h4 {
+  font-size: var(--r-heading4-size);
+  font-weight: var(--r-heading4-font-weight);
+  color: var(--r-heading-alt-color);
+}
+
+.reveal h5 {
+  font-size: var(--r-heading5-size);
+  font-weight: var(--r-heading5-font-weight);
+  line-height: 1.3333;
+}
+
+.reveal h6 {
+  font-size: var(--r-heading6-size);
+  font-weight: var(--r-heading6-font-weight);
+  color: var(--r-heading-alt-color);
+  font-family: var(--r-main-font);
+  line-height: 1.5;
+}
+
+.reveal h1 {
+  text-shadow: var(--r-heading1-text-shadow);
+}
+
+/*********************************************
+ * OTHER
+ *********************************************/
+.reveal p {
+  margin: var(--r-block-margin) 0;
+  line-height: 1.6;
+}
+
+.reveal p.intro {
+  margin: var(--r-block-margin) 0;
+  font-size: 1.2em;
+  line-height: 1.08;
+}
+
+/* Remove trailing margins after titles */
+.reveal h1:last-child,
+.reveal h2:last-child,
+.reveal h3:last-child,
+.reveal h4:last-child,
+.reveal h5:last-child,
+.reveal h6:last-child {
+  margin-bottom: 0;
+}
+
+/* Ensure certain elements are never larger than the slide itself */
+.reveal img,
+.reveal video,
+.reveal iframe:not([src^="https://codepen.io/"])
+{
+  max-width: 95%;
+  max-height: 95%;
+  width: auto;
+  height: auto;
+}
+
+.reveal strong,
+.reveal b {
+  font-weight: bold;
+}
+
+.reveal em {
+  font-style: italic;
+}
+
+.reveal ol,
+.reveal dl,
+.reveal ul {
+  display: inline-block;
+  text-align: left;
+  margin: 0 0 0 1.25em;
+}
+
+.reveal ul li,
+.reveal ol li {
+  margin-bottom: var(--r-block-margin);
+}
+
+.reveal ul.condensed li,
+.reveal ol.condensed li {
+  margin-bottom: calc(var(--r-block-margin) / 2);
+}
+
+.reveal ul.ultracondensed li,
+.reveal ol.ultracondensed li {
+  margin-bottom: calc(var(--r-block-margin) / 4);
+}
+
+.reveal ol {
+  list-style-type: decimal;
+}
+
+.reveal ul {
+  list-style-type: none;
+}
+
+.reveal ul li {
+  position: relative;
+  list-style-type: none;
+}
+
+.reveal ul li::before {
+  content: "\2022" !important;
+  position: absolute;
+  left: -1.25em;
+}
+
+.reveal ul ul {
+  list-style-type: square;
+}
+
+.reveal ul ul ul {
+  list-style-type: circle;
+}
+
+.reveal ul ul,
+.reveal ul ol,
+.reveal ol ol,
+.reveal ol ul {
+  display: block;
+  margin-left: 40px;
+}
+
+.reveal dt {
+  font-weight: bold;
+}
+
+.reveal dd {
+  margin-left: 40px;
+}
+
+.reveal blockquote {
+  display: block;
+  position: relative;
+  margin: calc(var(--r-block-margin) * 1.5) auto var(--r-block-margin);
+  padding: calc(var(--r-block-margin) / 2);
+  background: var(--grey-light-very);
+  color: var(--purple);
+  font-family: var(--font-sans);
+  font-weight: bold;
+}
+
+.reveal blockquote p {
+  margin: 0;
+}
+
+.reveal blockquote p:first-child,
+.reveal blockquote p:last-child {
+}
+
+.reveal blockquote p:first-child::before {
+  content: "“";
+  position: absolute;
+  font-size: 10rem;
+  line-height: 1;
+  color: #d3c5d5;
+  left: calc(var(--r-block-margin) / -1.5);
+  top: calc(var(--r-block-margin) / -1.75);
+}
+
+.reveal blockquote cite {
+  display: block;
+  color: var(--black);
+  font-size: 0.75em;
+}
+
+.reveal blockquote cite a {
+  color: inherit;
+}
+
+.reveal blockquote cite a:focus,
+.reveal blockquote cite a:hover {
+  color: var(--orange-dark);
+}
+
+.reveal p:not(:last-child) {
+  margin-bottom: var(--r-block-margin);
+}
+
+.reveal q {
+  font-style: italic;
+}
+
+.reveal pre {
+  display: block;
+  position: relative;
+  margin: var(--r-block-margin) auto;
+  text-align: left;
+  font-size: 0.55em;
+  font-family: var(--r-code-font);
+  line-height: 1.2em;
+  word-wrap: break-word;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.reveal code {
+  font-family: var(--r-code-font);
+  text-transform: none;
+  tab-size: 2;
+}
+
+.reveal pre code {
+  display: block;
+  padding: 5px;
+  overflow: auto;
+  max-height: 400px;
+  word-wrap: normal;
+}
+
+.reveal .code-wrapper {
+  white-space: normal;
+}
+
+.reveal .code-wrapper code {
+  white-space: pre;
+}
+
+.reveal table {
+  margin: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.reveal table th {
+  font-weight: bold;
+}
+
+.reveal table th,
+.reveal table td {
+  text-align: left;
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  border-bottom: 1px solid;
+}
+
+.reveal table th[align="center"],
+.reveal table td[align="center"] {
+  text-align: center;
+}
+
+.reveal table th[align="right"],
+.reveal table td[align="right"] {
+  text-align: right;
+}
+
+.reveal table tbody tr:last-child th,
+.reveal table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.reveal sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+
+.reveal sub {
+  vertical-align: sub;
+  font-size: smaller;
+}
+
+.reveal small {
+  display: inline-block;
+  font-size: 0.6em;
+  line-height: 1.2em;
+  vertical-align: top;
+}
+
+.reveal small * {
+  vertical-align: top;
+}
+
+/*.reveal img {
+  margin: var(--r-block-margin) 0;
+}*/
+
+/*********************************************
+ * LINKS
+ *********************************************/
+.reveal a {
+  color: var(--r-link-color);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.reveal a:focus,
+.reveal a:hover {
+  color: var(--r-link-color-hover);
+  text-shadow: none;
+  border: none;
+}
+
+.reveal a:focus {
+  outline: 2px solid var(--orange-light);
+  outline-offset: 5px;
+}
+
+.reveal .roll span:after {
+  color: #fff;
+  background: var(--r-link-color-dark);
+}
+
+/*********************************************
+ * Frame helper
+ *********************************************/
+.reveal .r-frame {
+  border: 4px solid var(--r-main-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.reveal a .r-frame {
+  transition: all 0.15s linear;
+}
+
+.reveal a:hover .r-frame {
+  border-color: var(--r-link-color);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
+}
+
+/*********************************************
+ * NAVIGATION CONTROLS
+ *********************************************/
+.reveal .controls {
+  color: var(--r-link-color);
+}
+
+/*********************************************
+ * PROGRESS BAR
+ *********************************************/
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--r-link-color);
+}
+
+/*********************************************
+ * PRINT BACKGROUND
+ *********************************************/
+@media print {
+  .backgrounds {
+    background-color: var(--r-background-color);
+  }
+}
+
+/* KNOWBILITY SPECIFIC */
+
+.button {
+  display: inline-block;
+  background-color: #397193 !important;
+  color: #fff !important;
+  min-width: 8.75rem;
+  font-family: var(--font-sans);
+  font-size: 1.5em;
+  line-height: 1.66667;
+  font-weight: 700;
+  border-radius: 0.25rem;
+  text-align: center;
+  padding: 0.375rem 0.75rem;
+  border: 0.125rem solid transparent;
+  cursor: pointer;
+}
+
+@media (min-width: 1000px) {
+  .button {
+    padding: 0.375rem 1.5rem;
+  }
+}
+
+.button:hover,
+.button:focus {
+  background-color: #08364e !important;
+  text-decoration: none;
+  color: #fff !important;
+}
+
+@media screen and (-ms-high-contrast: active) {
+  .button:hover,
+  .button:focus {
+    border-color: highlightText !important;
+    color: highlightText !important;
+  }
+}
+
+.button:focus {
+  border-color: #062434 !important;
+}
+
+.button--warning {
+  background-color: #d7141b !important;
+}
+
+.button--warning:hover,
+.button--warning:focus {
+  background-color: #b61116 !important;
+}
+
+.button--warning:focus {
+  border-color: #6b090d !important;
+}
+
+.reveal .speaker-notes:before {
+  content: "Notes";
+  display: block;
+  margin-bottom: 10px;
+  opacity: 1;
+  border-bottom: 1px solid black;
+  font-weight: bold;
+}
+
+.reveal .float-right {
+  max-width: 35%;
+  float: right;
+  margin-left: 5%;
+}
+
+svg {
+  vertical-align: middle;
+  height: 1.25em;
+}
+
+svg.icon {
+  width: 1.25em;
+  margin-right: 0.5em;
+}
+
+.fa-secondary {
+  opacity: 0.4;
+}
+img:only-child {
+  display: block;
+  margin: 0 auto;
+}
+
+.columns {
+  display: grid;
+  gap: 2em;
+}
+
+.columns.two {
+  grid-template-columns: 1fr 1fr;
+}
+
+.columns.three {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+kbd {
+  display: inline-block;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 0.85em;
+  background-color: var(--grey-light);
+  padding: 0 2px;
+  border-radius: 0.6rem;
+  color: #121313;
+  border: 1px solid var(--grey-dark);
+  padding: 0px 2px;
+  min-width: 1em;
+  text-align: center;
+}
+
+.reveal a {
+  text-decoration: underline;
+}
+
+li::marker,
+li::before {
+  color: var(--orange-light);
+}
+
+:not(pre) > code {
+  color: var(--orange-light);
+}
+
+.reveal .percent-width-50 {
+  width: 50%;
+}
+
+.center {
+  text-align: center !important;
+}
+
+.right {
+  text-align: right !important;
+}
+
+.left {
+  text-align: left !important;
+}
+
+div.slide-block button,
+div.slide-block input {
+  font-size: 1em;
+  border: 3px solid var(--orange-light);
+}
+
+div.slide-block label {
+  display: inline-block;
+}
+
+div.slide-block input {
+  padding-left: 10px;
+}
+
+div.slide-block button {
+  background-color: var(--blue);
+  color: white;
+  text-align: center;
+  border: 0;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+div.slide-block label,
+div.slide-block legend {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+div.slide-block img:only-child {
+  margin: 0 auto;
+}
+
+.orange {
+  color: var(--orange-light);
+}
+
+.blue {
+  color: var(--blue);
+}
+
+.small {
+  font-size: 0.8em;
+}
+
+table:not(.hljs-ln) > caption {
+  font-family: var(--font-sans);
+  font-weight: bold;
+  font-size: 1.5em;
+  text-align: left;
+}
+
+table:not(.hljs-ln) td {
+  background-color: var(--purple-dark);
+}
+
+table:not(.hljs-ln) :is(th, td):not(:last-child) {
+  border-right: 1px solid #fff;
+}
+
+/* CSS for form demos: */
+
+fieldset {
+  display: inline-block;
+  width: 45%;
+  border: 1px solid var(--orange-light);
+  padding: 15px;
+  text-align: left;
+  vertical-align: top;
+}
+
+fieldset:first-child {
+  margin-right: 10px;
+}
+
+fieldset legend {
+  margin-left: 15px;
+  padding: 0 10px;
+}
+
+fieldset input {
+  margin-bottom: 15px;
+}
+
+fieldset input:is([type="radio"], [type="checkbox"]) {
+  vertical-align: middle;
+}
+
+*:focus {
+  outline: 2px solid var(--orange-light);
+  outline-offset: 5px;
+}
+
+.second-fieldset fieldset input {
+  width: 96%;
+}
+
+div.slide-block .errors label {
+  color: #ff9e9e;
+}
+
+div.slide-block .errors input {
+  border: 5px solid #ff9e9e;
+}
+
+div.slide-block .validated label {
+  color: limegreen;
+}
+
+div.slide-block .validated input {
+  border: 5px solid limegreen;
+}
