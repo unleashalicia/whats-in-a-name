@@ -26,10 +26,9 @@ section.has-light-background h6 {
  * GLOBAL STYLES
  *********************************************/
 :root {
-  --font-sans: "mr-eaves-xl-modern-narrow", "Tahoma", "Arial", sans-serif;
-  --font-serif: "alda", "Verdana", "Arial", serif;
+  --font-sans: "Tahoma", "Arial", sans-serif;
+  --font-serif: "Verdana", "Arial", serif;
 
-  --knowbility: #6e2f75;
 
   --white: #fff;
   --grey-light-very-very: #fafafb;
@@ -50,6 +49,9 @@ section.has-light-background h6 {
   --blue: #397193;
   --blue-dark: #08364e;
   --blue-very-dark: #062434;
+
+  /* left for compatibility */
+  --knowbility: #397193;
 
   --red-light: #ff6a6f;
   --red: #d7141b;
@@ -76,7 +78,7 @@ section.has-light-background h6 {
   --teal-dark: #05ac8c;
   --teal-very-dark: #007e66;
 
-  --r-background-color: var(--purple-very-dark);
+  --r-background-color: var(--blue-very-dark);
   --r-main-font: var(--font-serif);
   --r-main-font-size: 40px;
   --r-main-color: var(--grey-light-very-very);
@@ -104,10 +106,10 @@ section.has-light-background h6 {
   --r-heading6-size: 1.2em;
   --r-heading6-font-weight: bold;
   --r-code-font: monospace;
-  --r-link-color: var(--blue-light);
-  --r-link-color-dark: #1a6091;
+  --r-link-color: var(--green-light);
+  --r-link-color-dark: var(--green);
   --r-link-color-hover: var(--yellow);
-  --r-selection-background-color: var(--blue);
+  --r-selection-background-color: var(--purple);
   --r-selection-color: var(--white);
 }
 
@@ -186,7 +188,7 @@ section.has-light-background h6 {
 }
 
 .reveal h3 strong {
-  color: var(--orange-light)
+  color: var(--teal-light)
 }
 
 .reveal h3 code {
@@ -333,7 +335,7 @@ section.has-light-background h6 {
   margin: calc(var(--r-block-margin) * 1.5) auto var(--r-block-margin);
   padding: calc(var(--r-block-margin) / 2);
   background: var(--grey-light-very);
-  color: var(--purple);
+  color: var(--blue);
   font-family: var(--font-sans);
   font-weight: bold;
 }
@@ -368,7 +370,7 @@ section.has-light-background h6 {
 
 .reveal blockquote cite a:focus,
 .reveal blockquote cite a:hover {
-  color: var(--orange-dark);
+  color: var(--green-dark);
 }
 
 .reveal p:not(:last-child) {
@@ -486,7 +488,7 @@ section.has-light-background h6 {
 }
 
 .reveal a:focus {
-  outline: 2px solid var(--orange-light);
+  outline: 2px solid var(--green-light);
   outline-offset: 5px;
 }
 
@@ -536,7 +538,7 @@ section.has-light-background h6 {
   }
 }
 
-/* KNOWBILITY SPECIFIC */
+/* CUSTOM */
 
 .button {
   display: inline-block;
@@ -659,11 +661,11 @@ kbd {
 
 li::marker,
 li::before {
-  color: var(--orange-light);
+  color: var(--teal-light);
 }
 
 :not(pre) > code {
-  color: var(--orange-light);
+  color: var(--teal-light);
 }
 
 .reveal .percent-width-50 {
@@ -685,7 +687,7 @@ li::before {
 div.slide-block button,
 div.slide-block input {
   font-size: 1em;
-  border: 3px solid var(--orange-light);
+  border: 3px solid var(--teal-light);
 }
 
 div.slide-block label {
@@ -735,7 +737,7 @@ table:not(.hljs-ln) > caption {
 }
 
 table:not(.hljs-ln) td {
-  background-color: var(--purple-dark);
+  background-color: var(--blue-dark);
 }
 
 table:not(.hljs-ln) :is(th, td):not(:last-child) {
@@ -747,7 +749,7 @@ table:not(.hljs-ln) :is(th, td):not(:last-child) {
 fieldset {
   display: inline-block;
   width: 45%;
-  border: 1px solid var(--orange-light);
+  border: 1px solid var(--teal-light);
   padding: 15px;
   text-align: left;
   vertical-align: top;
@@ -771,7 +773,7 @@ fieldset input:is([type="radio"], [type="checkbox"]) {
 }
 
 *:focus {
-  outline: 2px solid var(--orange-light);
+  outline: 2px solid var(--green-light);
   outline-offset: 5px;
 }
 
