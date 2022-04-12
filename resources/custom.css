@@ -14,13 +14,13 @@ div.code-example.password-example {
 div.code-example .popcolor,
 div.code-example legend,
 div.code-example label {
-	color: var(--orange-light);
+	color: var(--teal-light);
 }
 
 div.code-example button,
 div.code-example input {
 	font-size: 1em;
-	border: 3px solid var(--orange-light);
+	border: 3px solid var(--teal-light);
 }
 
 div.code-example label {
@@ -105,7 +105,7 @@ div.code-example legend {
 .more-fieldsets fieldset {
 	display: inline-block;
 	width: 45%;
-	border: 1px solid var(--orange-light);
+	border: 1px solid var(--teal-light);
 	padding: 15px;
 	text-align: left;
 	vertical-align: top;
@@ -175,7 +175,7 @@ div.aria-labelledby-ex button {
 }
 
 li::marker, li::before {
-	color: var(--orange-light);
+	color: var(--teal-light);
 }
 
 input[type=radio], input[type=checkbox] {
@@ -184,6 +184,6 @@ input[type=radio], input[type=checkbox] {
 }
 
 :not(pre) > code {
-	color: var(--orange-light);
+	color: var(--teal-light);
 	font-family: monospace;
 }
