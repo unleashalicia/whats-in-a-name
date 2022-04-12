@@ -54,16 +54,6 @@
                   </ol>
               </li>
           </ol>
-          <aside class="notes">
-           
-        </aside>
-        </section>
-        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h2>What and Why?</h2>
-            <p>What are accessible names, and why are they inportant</p>
-
-            <aside class="notes">
-            </aside>
         </section>
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
           <h2>Why are accessible names important: Example</h2>
@@ -78,7 +68,7 @@
           </aside>
         </section>
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h2>Why are accessible names important: Fixed Example</h2>
+            <h3>Why are accessible names important: Fixed Example</h3>
             <h3>Retrieve your prize!</h3>
             <img src=https://cdn.stocksnap.io/img-thumbs/960w/fruit-basket_TV0WT8JT5B.jpg alt="A basket full of green grapes, bananas, and peaches.">
             <p>Answer this question!</p>
@@ -88,8 +78,7 @@
             </aside>
           </section>
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h2>Visible labels are also important</h2>
-            <p>Example: Labels are programmatically defined but not visible</p>
+            <h2>Reminders: visible labels are important</h2>
 			<div class="code-example date-no-labels">
 			  <fieldset>
 				<legend>Date</legend>
@@ -98,19 +87,20 @@
 				<input type="text" aria-label="year">
 			  </fieldset>
 			</div>
-            <aside class="notes">
-                <p>It might seem obvious that all form fields must have visible labels.
-                    As I said, I almost never see form fields without labels in isolation.
-                    What I do see is ambiguous fields. </p>
-                <p>In this example, I have three input fields under one date label. 
-                    You might assume that the three fields are for day, month, and year.
-                    But depending on where you are in the world, day and month might be the first and second
-                    field respectively or the other way around.</p>
-                <p>This form isn't clear to anyone, and it will be very easy to input the incorrect date.</p>
-            </aside>
         </section>
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h2>Labels / accessible names must be clear</h2>
+            <h3>You must have visible labels</h3>
+			<div class="code-example date-no-labels">
+			  <fieldset>
+				<legend>Date</legend>
+				<input type="text" aria-label="month">
+				<input type="text" aria-label="day">
+				<input type="text" aria-label="year">
+			  </fieldset>
+			</div>
+        </section>
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+            <h3>Labels must be clear</h3>
 			<div class="code-example label-not-descriptive">
 				<input type="text" id="given-name" autocomplete="given-name">
 				<input type="text" id="family-name" autocomplete="family-name">
@@ -119,16 +109,9 @@
 					<label for="family-name">Name</label>
 				</div>
 			</div>
-            <aside class="notes">
-                <p>The next rule is that labels must be clear.</p> 
-                <p>In this example, there are two input fields, both with the label name.</p>
-                <p>My assumption would be that one of these is given name and the other is family name, but I can't be certain which is which. This also depends on where in the world this form is coming from.</p>
-                <p>And it might be something else entirely. It might be legal name and maiden name or nickname. The labels aren't clear enough to be sure.</p>
-                <p>So when you're creating labels, always make sure that they clearly identify what information is being requested.</p>
-            </aside>
         </section>
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h2>Visible labels must persist</h2>
+            <h3>Visible labels must persist</h3>
             <p>Placeholders won't cut it!</p>
 			<div class="code-example labels-must-persist">
 				<div class="subcontainer">
@@ -140,20 +123,6 @@
 					</div>
 				</div>
 			</div>
-            <aside class="notes">
-                <p>Next we have labels must persist and placeholders won't cut it!</p> 
-                <p>Here we have a contact information form with two fields and a submit button. Neither field has a label. The second field says Email in placeholder text. The first field just has the letter "A."</p>
-                <p>This is because I've already started filling out this field. But once I fill in information, the placeholder text disappears.</p>
-                <p>If I had short-term memory loss, or I was distracted by my two year old, or had a big headache today, I might not remember what the placeholder text said.</p>
-                <p>I would have to delete the information to see the placeholder again. And if I also had pain in my hands or limited mobility in my hands, that might be painful or more difficult.</p>
-                <p>There are other issues with placeholder text as well:</p>
-                <ul>
-                    <li>Placeholder text tends to be lighter than surrounding text. This can be more difficult to see for people with low vision.</li>
-                    <li>If you increase the text contrast, then it looks like the input is already filled in, and a user might skip over it accidentally.</li>
-                    <li>Some people also use placeholder text to give field hints or formats, but the same issues apply for that as well.</li>
-                </ul>
-                <p>In general, I recommend not using placeholders at all.</p>
-            </aside>
         </section>
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
             <h2>Labels must be programmatically defined</h2>
@@ -217,7 +186,7 @@
             <aside class="notes">
               <p>Now let's look at the same example again, but this time the label, "Favorite Animal," is within a programmatically associated <code>&lt;label&gt;</code>element.</p>
               <p>I'm always surprised how many developers I meet, some of them with over 20 years experience, who don't know how to programmatically associate a label. But if that's you, don't worry. I'm going to teach you how now.</p>
-              <p>So, here in the code we have the label, "Favorite Animal," within a label element. Below is the input.</p>
+              <p>Here in the code we have the label, "Favorite Animal," within a label element. Below is the input.</p>
               <p>This alone is not enough to associate the two. To programmatically associate the label to the input, first add a unique <code>id</code> to the input. Then add a <code>for</code> attribute to the label element with a value that matches the value of the id on the input.</p>
               <p>In this example, the input has an id value of fav-animal, and the label has a for attribute value of fav-animal.</p>
               <p>Now these two elements are programmatically linked, and the label names the field.</p>
@@ -227,31 +196,10 @@
           </aside>
         </section>
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h2>The accessible name computation hierarchy</h2>
-            <aside class="notes">
-
-            </aside>
+            <h3>The accessible name computation hierarchy</h3>
         </section>
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h2>Visible labels must be included in the accessible name</h2>
-			<div class="code-example label-not-descriptive">
-				<input aria-label="given name" type="text" id="given-name" autocomplete="given-name">
-				<input aria-label="family name" type="text" id="family-name" autocomplete="family-name">
-				<div>
-					<label>First Name</label>
-					<label>Last Name</label>
-				</div>
-			</div>
-            <aside class="notes">
-                <p>The next rule is that labels must be clear.</p> 
-                <p>In this example, there are two input fields, both with the label name.</p>
-                <p>My assumption would be that one of these is given name and the other is family name, but I can't be certain which is which. This also depends on where in the world this form is coming from.</p>
-                <p>And it might be something else entirely. It might be legal name and maiden name or nickname. The labels aren't clear enough to be sure.</p>
-                <p>So when you're creating labels, always make sure that they clearly identify what information is being requested.</p>
-            </aside>
-        </section>
-        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h2>Grouped fields? Use a <code>&lt;fieldset&gt;</code>!</h2>
+            <h3>Grouped fields? Use a <code>&lt;fieldset&gt;</code>!</h3>
             <div class="code-example more-fieldsets">
                 <fieldset>
                     <legend>Parent/Guardian Information</legend>
@@ -270,13 +218,6 @@
                     <input id="lname2" type="text" name="child-last" autocomplete="family-name">
                   </fieldset>
             </div>
-            <aside class="notes">
-                <p>Now what should you do if you have grouped fields? Use a fieldset!</p>
-                <p>Here we have a fieldset with the legend "Choose One Gift." And within that we have three radio buttons: Coffee mug, t-shirt, and rubix cube.</p>
-                <p>These are gifts we often give away at Knowbility.</p>
-                <p>Beside it is a fieldset with the legend "Extras" which contains three checkboxes: card, gift wrap, and singing telegram. We currently don't offer these at Knowbility.</p>
-                <p>In isolation, radio buttons for coffee mug, t-shirt, and rubix cube don't make sense. Screen reader users <em>and</em> visual users all benefit from grouping related fields and providing an explanation for why they are grouped.</p>
-            </aside>
         </section>
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
             <h3>More fieldsets</h3>
@@ -291,14 +232,9 @@
                     <label for="shots">Shots</label>
                     </fieldset>
 			</div>
-            <aside class="notes">
-                <p>Next we have more fieldset examples</p>
-                <p>Let's say that the gift service from the last slide required information about the gift giver and the gift receiver.</p>
-                <p>Here we have two feildsets, one that says Giver and one that says Receiver. Both contain name and email fields. Without these fieldsets, a screen reader user tabbing through the fields would find name and email fields twice without any differentiation. Fieldsets with legends provide context for these fields.</p>
-            </aside>
         </section>
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h2>Links and image links</h2>
+            <h3>Links and image links</h3>
             <a href="https://www.linkedin.com/in/aliciaadamsevans">Alicia Evans</a>
             <hr>
             <a href="https://www.linkedin.com/in/aliciaadamsevans">
@@ -306,7 +242,7 @@
             </a>
         </section>
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h2>Buttons and image buttons</h2>
+            <h3>Buttons and image buttons</h3>
             <button type="submit">Search</button>
             <hr>
             <button type="submit">
@@ -323,7 +259,7 @@
             </ul>
         </section>
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h4>Visually-hidden text example</h4>
+            <h3>Visually-hidden text example</h3>
 			<div class="code-example visually-hidden-ex">
 				<button class="button button--icon" type="submit">
 					<span class="visually-hidden">Search</span>
@@ -338,12 +274,12 @@
         </section>
 
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h3>ARIA</h3>
+            <h2>ARIA</h2>
             <p>Accessible Rich Internet Applications</p>
             <img src="./resources/wizard.png" alt="Illustration of Merlin the wizard casting a spell over the sword in the stone.">
         </section>
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h4>What is ARIA?</h4>
+            <h3>What is ARIA?</h3>
             <blockquote cite="./resources/saved_resource">
             <p>
                 WAI-ARIA, the Accessible Rich Internet Applications Suite, defines a way to make Web content and Web applications
@@ -465,7 +401,59 @@
 				<small id="pw-reqs" class="popcolor">Must be at least 8 characters</small>
 			</div>
         </section>
-       
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+            <h3>Labelling in widgets: ARIA pattern examples</h3>
+            <ul>
+                <li><a href="https://w3c.github.io/aria-practices/examples/dialog-modal/dialog.html">modal dialog</a></li>
+                <li><a href="https://w3c.github.io/aria-practices/examples/dialog-modal/alertdialog.html">alert dialog</a></li>
+                <li><a href="https://www.w3.org/TR/wai-aria-practices/examples/tabs/tabs-1/tabs.html">tabs</a></li>
+            </ul>
+        </section>
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+            <h2>Other Considerations</h2>
+        </section>
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+            <h3>Visible labels must be included in the accessible name</h3>
+			<div class="code-example label-not-descriptive">
+				<input aria-label="given name" type="text" id="given-name" autocomplete="given-name">
+				<input aria-label="family name" type="text" id="family-name" autocomplete="family-name">
+				<div>
+					<label>First Name</label>
+					<label>Last Name</label>
+				</div>
+			</div>
+        </section>
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+            <h3>Title and placeholder</h3>
+			<div class="code-example label-not-descriptive">
+				<input aria-label="given name" type="text" id="given-name" autocomplete="given-name" placeholder="First Name" aria-placeholder="Please give us your first name" title="We won't store your information">
+			</div>
+        </section>
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+            <h3 id="qwerty123">Accessible name computation hierarchy pop quiz</h3>
+            <button type="button" aria-label="Don't press me" aria-labelledby="qwerty123" title="AccessU 2022">Press me</button>
+        </section>
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+            <h3>Four variations for one button</h3>
+            <button type="submit">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/735px-Magnifying_glass_icon.svg.png?20130526065603" alt="">
+                Search    
+            </button>
+            <button type="submit">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/735px-Magnifying_glass_icon.svg.png?20130526065603" alt="Search"> 
+            </button>
+            <button type="submit">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/735px-Magnifying_glass_icon.svg.png?20130526065603" alt="">
+                <span class="visually-hidden">Search</span>   
+            </button>
+            <button type="submit" aria-label="search">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/735px-Magnifying_glass_icon.svg.png?20130526065603" alt="">
+            </button>
+            <h4 id="123">Search</h4>
+            <button type="submit" aria-labelledby="123">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/735px-Magnifying_glass_icon.svg.png?20130526065603" alt=""> 
+            </button>
+        </section>       
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
             <h2>Thank you!</h2>
                 <p>Email me at <a href="mailto:aevans@tpgi.com">aevans@tpgi.com</a>.</p>
