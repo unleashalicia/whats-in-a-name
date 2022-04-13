@@ -58,22 +58,20 @@
         </section>
 
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-          <h2>Why accessible names are important: Inaccessible Example</h2>
-          <div class="example">
+          <h2>Why accessible names are important:<br><span class="small-right-block">Inaccessible Example</span></h2>
+          <div class="code-example">
             <h3>Retrieve your prize!</h3>
             <img src="unloadable source">
             <p>Answer this question!</p>
-            <div class="code-example no-labels">
-              <input type="text">
-            </div>
+            <input type="text">
           </div>
           <aside class="notes">
           </aside>
         </section>
 
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future accessible-example">
-          <h2>Why accessible names are important: Accessible Example</h2>
-          <div class="example">
+          <h2>Why accessible names are important:<span class="small-right-block">Accessible Example</span></h2>
+          <div class="code-example">
             <h3>Retrieve your prize!</h3>
             <img src=https://cdn.stocksnap.io/img-thumbs/960w/fruit-basket_TV0WT8JT5B.jpg alt="A basket full of green grapes, bananas, and peaches.">
             <p>Answer this question!</p>
@@ -85,7 +83,7 @@
         </section>
 
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-          <h2>Reminder: visible labels are important</h2>
+          <h2>Reminder:<span class="small-right-block">Visible Labels are Important</span></h2>
           <div class="code-example date-no-labels">
             <fieldset>
             <legend>Date</legend>
@@ -159,7 +157,7 @@
         </section>
 
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-          <h3>Labels that aren't programmatically defined</h3>
+          <h3>Labels that aren't<br>programmatically defined</h3>
           <div class="code-example prog-defined">
             <p class="popcolor">Favorite Animal</p><br>
             <input type="text" name="animal">
@@ -180,7 +178,7 @@
         </section>
 
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-          <h3>Labels that are programmatically defined</h3>
+          <h3>Labels that are<br>programmatically defined</h3>
           <div class="code-example prog-defined">
             <label for="fav-animal" class="popcolor">Favorite Animal</label><br>
             <input type="text" name="animal" id="fav-animal">
@@ -249,8 +247,8 @@
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
             <h3 class="center">Buttons and image buttons</h3>
             <div class="code-example center">
-              <button type="submit">Search</button>
-              <button type="submit" class="image-button">
+              <button type="submit" onclick="alert('Hello! Time to search, eh?')">Search</button>
+              <button type="submit" class="image-button" onclick="alert('You just clicked on a button with an image in it, thank goodness it had alt text.')">
                   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/735px-Magnifying_glass_icon.svg.png?20130526065603" alt="search">    
               </button>
             </div>
@@ -267,7 +265,7 @@
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
           <h3>Visually-hidden text example</h3>
           <div class="code-example visually-hidden-ex">
-            <button class="button button--icon" type="submit">
+            <button class="button button--icon" type="submit" onclick="alert('My visually hidden text says: Search')">
               <span class="visually-hidden">Search</span>
               <svg width="25" height="33" viewBox="0 0 25 33" aria-hidden="true" focusable="”false”" style="display: block; margin: auto; height: 0.75em;">
                 <g transform="matrix(-1 0 0 1 21 -3)" fill="none" fill-rule="evenodd">
@@ -303,8 +301,8 @@
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
           <h3>Button vs ARIA Button</h3>
           <div class="code-example aria-buttons">
-            <button type="button" class="real-button">Button</button>
-            <div role="button" class="fake-button">ARIA Button</div>
+            <button type="button" class="real-button" onclick="alert('You clicked an actual button button element')">Button</button>
+            <div role="button" class="fake-button" onclick="alert('You clicked a div with role=button')">ARIA Button</div>
           </div>
           <aside class="notes">
             <p>Before we dive in, here is my favorite example of why you shouldn't rush to ARIA.</p>
@@ -379,7 +377,7 @@
         <div class="code-example aria-labelledby-ex">
           <label for="search" id="search-label">Search</label><br>
           <input id="search">
-          <button class="button button--icon" type="submit" aria-labelledby="search-label">
+          <button class="button button--icon" type="submit" aria-labelledby="search-label" onclick="alert('You searched for: ' + document.getElementById('search').value)">
             <svg width="25" height="33" viewBox="0 0 25 33" aria-hidden="true" focusable="”false”" style="display: block; margin: auto; height: 0.75em;">
               <g transform="matrix(-1 0 0 1 21 -3)" fill="none" fill-rule="evenodd">
               <path d="M8.069 18.237l2.015.54-3.473 12.962-2.016-.54L8.07 18.237zm2.015.54l2.016.54L8.627 32.28l-2.016-.54 3.473-12.962z" fill="currentColor"></path>
@@ -449,7 +447,7 @@
       <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
         <h3 id="qwerty123">Accessible name computation hierarchy pop quiz</h3>
         <div class="code-example">
-          <button type="button" aria-label="Don't press me" aria-labelledby="qwerty123" title="AccessU 2022">Press me</button>
+          <button type="button" aria-label="Don't press me" aria-labelledby="qwerty123" title="AccessU 2022" onclick="alert('Looks like you did not pay attention to the aria-label!')">Press me</button>
         </div>
       </section>
 

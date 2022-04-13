@@ -206,6 +206,7 @@ input[type=radio], input[type=checkbox] {
 /* Start individual slide work */
 .accessible-example img {
   width: 25%;
+  float: right;
 }
 
 .accessible-example input {
@@ -228,3 +229,20 @@ input[type=radio], input[type=checkbox] {
   filter: invert(100%);
 }
 
+.small-right-block {
+  font-size: 0.8em;
+  display: block;
+  margin-top: 0.3em;
+  text-align: right;
+}
+
+button {
+  transition: background-color 0.2s;
+}
+
+div[role=button]:hover,
+button:hover,
+button:focus,
+button:focus-within {
+  background-color: var(--purple-dark) !important;
+}
