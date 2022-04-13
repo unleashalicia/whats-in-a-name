@@ -1,3 +1,7 @@
+.top-space {
+  margin-top: 1em !important;
+}
+
 div.code-example {
 	border-top: 2px dashed;
 	padding-top: 2rem;
@@ -42,8 +46,8 @@ div.code-example button {
 
 div.code-example label,
 div.code-example legend {
-	margin-bottom: 10px;
-	margin-top: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .no-labels input {
@@ -123,8 +127,19 @@ div.code-example legend {
 	margin-bottom: 15px;
 }
 
+.more-fieldsets.second-fieldset fieldset {
+  width: 90%;
+  margin: auto;
+}
+
 .more-fieldsets.second-fieldset fieldset input {
-	width: 96%;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+}
+
+.more-fieldsets label {
+  font-size: 1em;
 }
 
 .aria-buttons button.real-button,
@@ -187,3 +202,29 @@ input[type=radio], input[type=checkbox] {
 	color: var(--teal-light);
 	font-family: monospace;
 }
+
+/* Start individual slide work */
+.accessible-example img {
+  width: 25%;
+}
+
+.accessible-example input {
+  height: 52px;
+  vertical-align: middle;
+  width: 30%;
+}
+
+.example {
+  border-left: 2px solid var(--teal-dark);
+  padding-left: 1em;
+}
+
+.image-button {
+  vertical-align: top;
+}
+
+.image-button img {
+  width: 50px;
+  filter: invert(100%);
+}
+

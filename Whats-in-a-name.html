@@ -21,14 +21,14 @@
           <h1>What's in a Name?</h1>
           <p>
             <span class="intro">Why and How to Add Accessible Names to User Interface Elements</span>
-            <span class="float-right" style="max-width: unset;">
-                Alicia Evans, AccessU 2022
-              </span>
           </p>
-        <aside class="notes">
-
-        </aside>
+          <p class="right">
+            Alicia Evans, AccessU 2022
+          </p>
+          <aside class="notes">
+          </aside>
         </section>
+
         <section style="top: 95px; display: block;" hidden="" aria-hidden="true" class="future">
           <h2>Hi! I'm Alicia Evans</h2>
           <img alt="Headshot of Alicia Evans, a fair skinned, dark haired woman with black-framed glasses." src="./resources/alicia-profile.png" class="float-right">
@@ -42,128 +42,129 @@
             <p>And I've included a photograph of myself with my father's large off-white standard poodle in a rose garden. I am a woman in my 30s with very dark long hair, pale skin, and wearing black-frame glasses.</p>
         </aside>
         </section>
+
         <section style="top: 38.5px; display: block;" hidden="" aria-hidden="true" class="future">
           <h2>Agenda</h2>
           <ol>
-              <li>What are accessible names and why are they important?</li>
-              <li>How to make accessible names
-                  <ol>
-                      <li>HTML</li>
-                      <li>CSS</li>
-                      <li>ARIA</li>
-                  </ol>
+            <li>What are accessible names and why are they important?</li>
+            <li>How to make accessible names
+                <ol>
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>ARIA</li>
+                </ol>
               </li>
           </ol>
         </section>
+
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-          <h2>Why are accessible names important: Example</h2>
-          <p>Intentionally inaccessible</p>
-          <h3>Retrieve your prize!</h3>
-          <img src="unloadable source">
-          <p>Answer this question!</p>
-          <div class="code-example no-labels">
-            <input type="text">
+          <h2>Why accessible names are important: Inaccessible Example</h2>
+          <div class="example">
+            <h3>Retrieve your prize!</h3>
+            <img src="unloadable source">
+            <p>Answer this question!</p>
+            <div class="code-example no-labels">
+              <input type="text">
+            </div>
           </div>
           <aside class="notes">
           </aside>
         </section>
-        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h3>Why are accessible names important: Fixed Example</h3>
+
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future accessible-example">
+          <h2>Why accessible names are important: Accessible Example</h2>
+          <div class="example">
             <h3>Retrieve your prize!</h3>
             <img src=https://cdn.stocksnap.io/img-thumbs/960w/fruit-basket_TV0WT8JT5B.jpg alt="A basket full of green grapes, bananas, and peaches.">
             <p>Answer this question!</p>
             <label for="fruit">What is your favorite fruit?</label>
             <input type="text">
-            <aside class="notes">
-            </aside>
-          </section>
-        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h2>Reminders: visible labels are important</h2>
-			<div class="code-example date-no-labels">
-			  <fieldset>
-				<legend>Date</legend>
-				<input type="text" aria-label="month">
-				<input type="text" aria-label="day">
-				<input type="text" aria-label="year">
-			  </fieldset>
-			</div>
+          </div>
+          <aside class="notes">
+          </aside>
         </section>
+
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h3>You must have visible labels</h3>
-			<div class="code-example date-no-labels">
-			  <fieldset>
-				<legend>Date</legend>
-				<input type="text" aria-label="month">
-				<input type="text" aria-label="day">
-				<input type="text" aria-label="year">
-			  </fieldset>
-			</div>
+          <h2>Reminder: visible labels are important</h2>
+          <div class="code-example date-no-labels">
+            <fieldset>
+            <legend>Date</legend>
+            <input type="text" aria-label="month">
+            <input type="text" aria-label="day">
+            <input type="text" aria-label="year">
+            </fieldset>
+          </div>
         </section>
+
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h3>Labels must be clear</h3>
-			<div class="code-example label-not-descriptive">
-				<input type="text" id="given-name" autocomplete="given-name">
-				<input type="text" id="family-name" autocomplete="family-name">
-				<div>
-					<label for="given-name">Name</label>
-					<label for="family-name">Name</label>
-				</div>
-			</div>
+          <h3>Labels must be clear</h3>
+          <div class="code-example label-not-descriptive">
+            <input type="text" id="given-name" autocomplete="given-name">
+            <input type="text" id="family-name" autocomplete="family-name">
+            <div>
+              <label for="given-name">Name</label>
+              <label for="family-name">Name</label>
+            </div>
+          </div>
         </section>
+
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h3>Visible labels must persist</h3>
-            <p>Placeholders won't cut it!</p>
-			<div class="code-example labels-must-persist">
-				<div class="subcontainer">
-					<h2>Contact Information</h2>
-					<div>
-						<input placeholder="Name" value="A">
-						<input placeholder="Email">
-						<button type="submit">Submit</button>
-					</div>
-				</div>
-			</div>
+          <h3>Visible labels must persist</h3>
+          <p>Placeholders won't cut it!</p>
+          <div class="code-example labels-must-persist">
+            <div class="subcontainer">
+              <h2>Contact Information</h2>
+              <div>
+                <input placeholder="Name" value="A">
+                <input placeholder="Email">
+                <button type="submit">Submit</button>
+              </div>
+            </div>
+          </div>
         </section>
+
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h2>Labels must be programmatically defined</h2>
-            <aside class="notes">
-                <p>Now we've discussed some of the important aspects of visual labelling. But that's not the whole story.</p>
-                <p>Labels must also be programmatically defined so that assistive technology users also get the full benefits of labels.</p>
-            </aside>
+          <h2>Labels must be programmatically defined</h2>
+          <aside class="notes">
+            <p>Now we've discussed some of the important aspects of visual labelling. But that's not the whole story.</p>
+            <p>Labels must also be programmatically defined so that assistive technology users also get the full benefits of labels.</p>
+          </aside>
         </section>
+
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h3>What's an accessible name?</h3>
-            <p>The <a href="https://www.w3.org/TR/accname-1.1">accessible name</a> is the name that assistive technologies communicate to users to identify an element. How does this work (on the web)?</p>
+          <h3>What's an accessible name?</h3>
+          <p>The <a href="https://www.w3.org/TR/accname-1.1">accessible name</a> is the name that assistive technologies communicate to users to identify an element. How does this work (on the web)?</p>
+          <ol>
+            <li>Code</li>
+            <li>Browser</li>
+            <li>Operating System (OS) / Accessibility API</li>
+            <li>Assistive Technology (AT) / User</li>
+          </ol>
+          <aside class="notes">
+            <p>To start talking about programmatically defined labels, we first have to have an understanding of the accessible name computation.</p>
+            <p>So what is an accessible name?</p>
+            <p>All of the explanations I've found tend to be really confusing, so I've tried to strip it down to the main idea.</p>
+            <p>The accessible name is the name that assistive technologies communicate to users (and vice versa) to identify an element.</p>
+            <p>By the way, all of these links are available on the slides themselves.</p>
+            <p>So, how does this work on the web?</p>
             <ol>
-                <li>Code</li>
-                <li>Browser</li>
-                <li>Operating System (OS) / Accessibility API</li>
-                <li>Assistive Technology (AT) / User</li>
+              <li>First, a developer writes some code.</li>
+              <li>Then the browser interprets and renders that code.</li>
+              <li>Then the Operating System, or OS, uses the Accessibility API to send important accessibility information from the browser to the assistive technology, or AT.</li>
+              <li>Then the AT communicates that information to users.</li>
             </ol>
-            <aside class="notes">
-                <p>To start talking about programmatically defined labels, we first have to have an understanding of the accessible name computation.</p>
-                <p>So what is an accessible name?</p>
-                <p>All of the explanations I've found tend to be really confusing, so I've tried to strip it down to the main idea.</p>
-                <p>The accessible name is the name that assistive technologies communicate to users (and vice versa) to identify an element.</p>
-                <p>By the way, all of these links are available on the slides themselves.</p>
-                <p>So, how does this work on the web?</p>
-                <ol>
-                    <li>First, a developer writes some code.</li>
-                    <li>Then the browser interprets and renders that code.</li>
-                    <li>Then the Operating System, or OS, uses the Accessibility API to send important accessibility information from the browser to the assistive technology, or AT.</li>
-                    <li>Then the AT communicates that information to users.</li>
-                </ol>
-                <p>This can be a complicated process to wrap your head around, but what I want you to take away from it is this: If you, as the developer, don't put accessibility information into the code, it's not going to magically be communicated to the user.</p>
-                <p>Hopefully this will make more sense in the next few examples.</p>
-            </aside>
+            <p>This can be a complicated process to wrap your head around, but what I want you to take away from it is this: If you, as the developer, don't put accessibility information into the code, it's not going to magically be communicated to the user.</p>
+            <p>Hopefully this will make more sense in the next few examples.</p>
+          </aside>
         </section>
+
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h3>Labels that aren't programmatically defined</h3>
-			<div class="code-example prog-defined">
-				<p class="popcolor">Favorite Animal</p><br>
-				<input type="text" name="animal">
-			</div>
-        <aside class="notes">
+          <h3>Labels that aren't programmatically defined</h3>
+          <div class="code-example prog-defined">
+            <p class="popcolor">Favorite Animal</p><br>
+            <input type="text" name="animal">
+          </div>
+          <aside class="notes">
             <p>Here is our first example, where labels aren't programmatically defined.</p>
             <p>There's an input with text above it that says "Favorite Animal."</p>
             <p>So far, this passes all of our label rules from previous slides. It has a visible, clear, and persistent label. However, in this case, the "label" isn't coded as a <code>&lt;label&gt;</code> element. It's coded as a paragraph element.</p>
@@ -175,295 +176,311 @@
             <p>Highlight the element you want to inspect in the code. Then find the Accessibility tab.</p>
             <p>(Show accessible name computation)</p>
             <p>(Show screen reader)</p>
-        </aside>
-        </section>
-        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h3>Labels that are programmatically defined</h3>
-			<div class="code-example prog-defined">
-				<label for="fav-animal" class="popcolor">Favorite Animal</label><br>
-				<input type="text" name="animal" id="fav-animal">
-			</div>
-            <aside class="notes">
-              <p>Now let's look at the same example again, but this time the label, "Favorite Animal," is within a programmatically associated <code>&lt;label&gt;</code>element.</p>
-              <p>I'm always surprised how many developers I meet, some of them with over 20 years experience, who don't know how to programmatically associate a label. But if that's you, don't worry. I'm going to teach you how now.</p>
-              <p>Here in the code we have the label, "Favorite Animal," within a label element. Below is the input.</p>
-              <p>This alone is not enough to associate the two. To programmatically associate the label to the input, first add a unique <code>id</code> to the input. Then add a <code>for</code> attribute to the label element with a value that matches the value of the id on the input.</p>
-              <p>In this example, the input has an id value of fav-animal, and the label has a for attribute value of fav-animal.</p>
-              <p>Now these two elements are programmatically linked, and the label names the field.</p>
-              <p>Let's take a look at our accessible name again in the Chrome developer tools.</p>
-              <p>(Look at name in dev tools)</p>
-              <p>(Show in screen reader)</p>
           </aside>
         </section>
+
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h3>The accessible name computation hierarchy</h3>
+          <h3>Labels that are programmatically defined</h3>
+          <div class="code-example prog-defined">
+            <label for="fav-animal" class="popcolor">Favorite Animal</label><br>
+            <input type="text" name="animal" id="fav-animal">
+          </div>
+          <aside class="notes">
+            <p>Now let's look at the same example again, but this time the label, "Favorite Animal," is within a programmatically associated <code>&lt;label&gt;</code>element.</p>
+            <p>I'm always surprised how many developers I meet, some of them with over 20 years experience, who don't know how to programmatically associate a label. But if that's you, don't worry. I'm going to teach you how now.</p>
+            <p>Here in the code we have the label, "Favorite Animal," within a label element. Below is the input.</p>
+            <p>This alone is not enough to associate the two. To programmatically associate the label to the input, first add a unique <code>id</code> to the input. Then add a <code>for</code> attribute to the label element with a value that matches the value of the id on the input.</p>
+            <p>In this example, the input has an id value of fav-animal, and the label has a for attribute value of fav-animal.</p>
+            <p>Now these two elements are programmatically linked, and the label names the field.</p>
+            <p>Let's take a look at our accessible name again in the Chrome developer tools.</p>
+            <p>(Look at name in dev tools)</p>
+            <p>(Show in screen reader)</p>
+          </aside>
         </section>
+
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h3>Grouped fields? Use a <code>&lt;fieldset&gt;</code>!</h3>
-            <div class="code-example more-fieldsets">
-                <fieldset>
-                    <legend>Parent/Guardian Information</legend>
-                    <label for="fname">First Name</label>
-                    <input id="fname" type="text" name="guardian-first" autocomplete="given-name">
-                      <label for="lname">Last Name</label>
-                    <input id="lname" type="text" name="guardian-last" autocomplete="family-name">
-                  </fieldset>
-                  
-                  
-                  <fieldset>
-                    <legend>Child's Information</legend>
-                    <label for="fname2">First Name</label>
-                    <input id="fname2" type="text" name="child-first" autocomplete="given-name">
-                      <label for="lname2">Last Name</label>
-                    <input id="lname2" type="text" name="child-last" autocomplete="family-name">
-                  </fieldset>
+          <h3>The accessible name computation hierarchy</h3>
+        </section>
+
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+          <h3>Grouped fields? Use a <code>&lt;fieldset&gt;</code>!</h3>
+          <div class="code-example more-fieldsets">
+            <fieldset>
+              <legend>Guardian's Info</legend>
+              <label for="fname">First Name</label>
+              <input id="fname" type="text" name="guardian-first" autocomplete="given-name">
+              <label for="lname">Last Name</label>
+              <input id="lname" type="text" name="guardian-last" autocomplete="family-name">
+            </fieldset>
+            <fieldset>
+              <legend>Child's Info</legend>
+              <label for="fname2">First Name</label>
+              <input id="fname2" type="text" name="child-first" autocomplete="given-name">
+              <label for="lname2">Last Name</label>
+              <input id="lname2" type="text" name="child-last" autocomplete="family-name">
+            </fieldset>
+          </div>
+        </section>
+
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+          <h3>More fieldsets</h3>
+          <div class="code-example more-fieldsets second-fieldset">
+            <fieldset>
+              <legend>Why are you visiting us today?</legend>
+              <input id="checkup" type="checkbox" name="checkup" checked>
+              <label for="checkup">Check up</label><br>
+              <input id="illness" type="checkbox" name="illness">
+              <label for="illness">Illness</label><br>
+              <input id="shots" type="checkbox" name="shots">
+              <label for="shots">Shots</label>
+            </fieldset>
+          </div>
+        </section>
+
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+          <h3>Links and image links</h3>
+          <a href="https://www.linkedin.com/in/aliciaadamsevans">Alicia Evans</a>
+          <hr>
+          <a href="https://www.linkedin.com/in/aliciaadamsevans">
+            <img src="https://knowbility.org/media/pages/instructors/alicia-evans/55ab131d29-1616526573/alicia-evans.jpg" alt="Alicia Evans">
+          </a>
+        </section>
+
+        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+            <h3 class="center">Buttons and image buttons</h3>
+            <div class="code-example center">
+              <button type="submit">Search</button>
+              <button type="submit" class="image-button">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/735px-Magnifying_glass_icon.svg.png?20130526065603" alt="search">    
+              </button>
             </div>
         </section>
+
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h3>More fieldsets</h3>
-			<div class="code-example more-fieldsets second-fieldset">
-                  <fieldset>
-                    <legend>Why are you visiting us today?</legend>
-                    <input id="checkup" type="checkbox" name="checkup" checked>
-                    <label for="checkup">Check up</label>
-                      <input id="illness" type="checkbox" name="illness">
-                    <label for="illness">Illness</label>
-                      <input id="shots" type="checkbox" name="shots">
-                    <label for="shots">Shots</label>
-                    </fieldset>
-			</div>
+          <h2>CSS: visually-hidden text</h2>
+          <ul>
+            <li>Use <code>display:none</code> or <code>visibility:hidden</code> to hide content that should be hidden from everyone. Don't rely on opacity, hiding off-screen, or clipped text if the content should be hidden for all users</li>
+            <li>Use a <a href="https://www.a11yproject.com/posts/2013-01-11-how-to-hide-content/">visually-hidden</a> or similar class to hide content visually that adds context for screen reader users</li>
+          </ul>
         </section>
+
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h3>Links and image links</h3>
-            <a href="https://www.linkedin.com/in/aliciaadamsevans">Alicia Evans</a>
-            <hr>
-            <a href="https://www.linkedin.com/in/aliciaadamsevans">
-              <img src="https://knowbility.org/media/pages/instructors/alicia-evans/55ab131d29-1616526573/alicia-evans.jpg" alt="Alicia Evans">
-            </a>
-        </section>
-        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h3>Buttons and image buttons</h3>
-            <button type="submit">Search</button>
-            <hr>
-            <button type="submit">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/735px-Magnifying_glass_icon.svg.png?20130526065603" alt="search">    
+          <h3>Visually-hidden text example</h3>
+          <div class="code-example visually-hidden-ex">
+            <button class="button button--icon" type="submit">
+              <span class="visually-hidden">Search</span>
+              <svg width="25" height="33" viewBox="0 0 25 33" aria-hidden="true" focusable="”false”" style="display: block; margin: auto; height: 0.75em;">
+                <g transform="matrix(-1 0 0 1 21 -3)" fill="none" fill-rule="evenodd">
+                  <path d="M8.069 18.237l2.015.54-3.473 12.962-2.016-.54L8.07 18.237zm2.015.54l2.016.54L8.627 32.28l-2.016-.54 3.473-12.962z" fill="currentColor"></path>
+                  <ellipse stroke="currentColor" stroke-width="4" transform="rotate(15 11.502 12.378)" cx="11.502" cy="12.378" rx="7.391" ry="7.29"></ellipse>
+                </g>
+              </svg>
             </button>
-        </section>
-
-
-        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h2>CSS: visually-hidden text</h2>
-            <ul>
-                <li>Use <code>display:none</code> or <code>visibility:hidden</code> to hide content that should be hidden from everyone. Don't rely on opacity, hiding off-screen, or clipped text if the content should be hidden for all users</li>
-                <li>Use a <a href="https://www.a11yproject.com/posts/2013-01-11-how-to-hide-content/">visually-hidden</a> or similar class to hide content visually that adds context for screen reader users</li>
-            </ul>
-        </section>
-        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h3>Visually-hidden text example</h3>
-			<div class="code-example visually-hidden-ex">
-				<button class="button button--icon" type="submit">
-					<span class="visually-hidden">Search</span>
-					<svg width="25" height="33" viewBox="0 0 25 33" aria-hidden="true" focusable="”false”" style="display: block; margin: auto; height: 0.75em;">
-						<g transform="matrix(-1 0 0 1 21 -3)" fill="none" fill-rule="evenodd">
-							<path d="M8.069 18.237l2.015.54-3.473 12.962-2.016-.54L8.07 18.237zm2.015.54l2.016.54L8.627 32.28l-2.016-.54 3.473-12.962z" fill="currentColor"></path>
-							<ellipse stroke="currentColor" stroke-width="4" transform="rotate(15 11.502 12.378)" cx="11.502" cy="12.378" rx="7.391" ry="7.29"></ellipse>
-						</g>
-					</svg>
-				</button>
-			</div>
+          </div>
         </section>
 
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h2>ARIA</h2>
-            <p>Accessible Rich Internet Applications</p>
-            <img src="./resources/wizard.png" alt="Illustration of Merlin the wizard casting a spell over the sword in the stone.">
+          <h2>ARIA</h2>
+          <p>Accessible Rich Internet Applications</p>
+          <img src="./resources/wizard.png" alt="Illustration of Merlin the wizard casting a spell over the sword in the stone.">
         </section>
+
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h3>What is ARIA?</h3>
-            <blockquote cite="./resources/saved_resource">
+          <h3>What is ARIA?</h3>
+          <blockquote cite="./resources/saved_resource">
             <p>
-                WAI-ARIA, the Accessible Rich Internet Applications Suite, defines a way to make Web content and Web applications
-                more accessible to people with disabilities. It especially helps with dynamic content and advanced user interface
-                controls developed with HTML, JavaScript, and related technologies.
+              WAI-ARIA, the Accessible Rich Internet Applications Suite, defines a way to make Web content and Web applications more accessible to people with disabilities. It especially helps with dynamic content and advanced user interface controls developed with HTML, JavaScript, and related technologies.
             </p>
           </blockquote>
           <aside class="notes">
-              <p>Before we talk about how to use ARIA, we should know what it is. According to the WAI-ARIA website (that's W.A.I dash A.R.I.A):</p>
-              <p>Emphasis mine: <q>WAI-ARIA, the Accessible Rich Internet Application Suite, defines <em>a way</em> to make web content and web applications more accessible to people with disabilities. It especially helps with dynamic content and the advanced user interface controls developed with HTML, JavaScript, and related technologies.</q></p>
-              <p>There are two main take aways here. The first is that ARIA is only one way to make things more accessible. There are other solutions as well.</p>
-              <p>The other is that ARIA is especially useful for dynamic and complex content. That's where it should mostly be used. But there are other occasions, as we'll explore in the next slides, where it's okay to use some ARIA.</p>
+            <p>Before we talk about how to use ARIA, we should know what it is. According to the WAI-ARIA website (that's W.A.I dash A.R.I.A):</p>
+            <p>Emphasis mine: <q>WAI-ARIA, the Accessible Rich Internet Application Suite, defines <em>a way</em> to make web content and web applications more accessible to people with disabilities. It especially helps with dynamic content and the advanced user interface controls developed with HTML, JavaScript, and related technologies.</q></p>
+            <p>There are two main take aways here. The first is that ARIA is only one way to make things more accessible. There are other solutions as well.</p>
+            <p>The other is that ARIA is especially useful for dynamic and complex content. That's where it should mostly be used. But there are other occasions, as we'll explore in the next slides, where it's okay to use some ARIA.</p>
           </aside>
         </section>
+
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h3>Button vs ARIA Button</h3>
-			<div class="code-example aria-buttons">
-				<button type="button" class="real-button">Button</button>
-				<div role="button" class="fake-button">ARIA Button</div>
-			</div>
-            <aside class="notes">
-                <p>Before we dive in, here is my favorite example of why you shouldn't rush to ARIA.</p>
-                <p>On this page, I have a button element with the text button, and a button made out of ARIA with the text ARIA Button</p>
-                <p>For the HTML button, the code is a button element type button with the text "Button" inside it. This button is accessible, and there's nothing we need to add to it.</p>
-                <p>But I see a lot of developers try to make buttons out of divs or links. In this case, there's a div with some ARIA added, in this case, <code>role="button"</code>. If it were that simple, that would be great. But ARIA isn't all-powerful. A lot more needs to be added to this div to transform it into a button:</p>
-                <ul>
-                    <li>It needs to be reachable by keyboard. That means adding <code>tabindex="0"</code>.</li>
-                    <li>It needs to activate when a user clicks the Spacebar, so there needs to be a key event listener as well as a click event listener.</li>
-                    <li>We don't want the Spacebar to scroll the page if it's used to activate the control, so you would need to prevent default</li>
-                    <li>You need to change the curser to the expected arrow curser.</li>
-                    <li>And if you are using custom focus styles, you'll need to include elements with <code>role="button"</code> or <code>tabindex="0"</code> as well as other interactive elements.</li>
-                </ul>
-                <p>So when you use the proper HTML elements, all the accessibility features are already baked in. If you try to transform one element into another, you need to add a lot more accessibility features to it, and you might accidentally forget some.</p>
-                <p>Please always use button elements for buttons, and always use the correct HTML element rather than reaching for ARIA.</p>
-            </aside>
-        </section>
-        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h3><code>aria-label</code></h3>
+          <h3>Button vs ARIA Button</h3>
+          <div class="code-example aria-buttons">
+            <button type="button" class="real-button">Button</button>
+            <div role="button" class="fake-button">ARIA Button</div>
+          </div>
+          <aside class="notes">
+            <p>Before we dive in, here is my favorite example of why you shouldn't rush to ARIA.</p>
+            <p>On this page, I have a button element with the text button, and a button made out of ARIA with the text ARIA Button</p>
+            <p>For the HTML button, the code is a button element type button with the text "Button" inside it. This button is accessible, and there's nothing we need to add to it.</p>
+            <p>But I see a lot of developers try to make buttons out of divs or links. In this case, there's a div with some ARIA added, in this case, <code>role="button"</code>. If it were that simple, that would be great. But ARIA isn't all-powerful. A lot more needs to be added to this div to transform it into a button:</p>
             <ul>
-                <li>One way to provide an accessible name</li>
-                <li>Use where there is no visible text for an element</li>
-                <li>Doesn't work consistently on all elements</li>
-                <li>Will overwrite content: Use caution!</li>
-                <li>Format: <code>aria-label="value"</code></li>
+              <li>It needs to be reachable by keyboard. That means adding <code>tabindex="0"</code>.</li>
+              <li>It needs to activate when a user clicks the Spacebar, so there needs to be a key event listener as well as a click event listener.</li>
+              <li>We don't want the Spacebar to scroll the page if it's used to activate the control, so you would need to prevent default</li>
+              <li>You need to change the curser to the expected arrow curser.</li>
+              <li>And if you are using custom focus styles, you'll need to include elements with <code>role="button"</code> or <code>tabindex="0"</code> as well as other interactive elements.</li>
             </ul>
-            <aside class="notes">
-                <p>I think that's enough disclaimers for now, so let's jump into our ARIA labelling solutions.</p>
-                <p>The first technique we'll look at is using <code>aria-label</code>.</p>
-                <ol>
-                    <li><code>aria-label</code> is one way to provide an accessible name, and that's true of all of our examples today.</li>
-                    <li>Reach for <code>aria-label</code> when there's no visible text on the page that can be used as a label</li>
-                    <li>Some words of caution: Aria labelling doesn't work consistently on all elements, so don't use it on a div or span. Only use it for elements that have an implicit or explicit role. No generic elements.</li>
-                    <li>As we saw in the accessible name computation, adding an <code>aria-label</code> or <code>aria-labelledby</code> will overwrite any existing name. So use aria labelling with extreme caution.</li>
-                    <li>And the format for <code>aria-label</code> is aria dash label equals and the whatever you want the accessible name to be in quotes.</li>
-                </ol>
-                <p>Let's look at an example.</p>
-            </aside>
+            <p>So when you use the proper HTML elements, all the accessibility features are already baked in. If you try to transform one element into another, you need to add a lot more accessibility features to it, and you might accidentally forget some.</p>
+            <p>Please always use button elements for buttons, and always use the correct HTML element rather than reaching for ARIA.</p>
+          </aside>
         </section>
+
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h4><code>aria-label</code> example</h4>
-			<div class="code-example aria-label-ex">
-				<button class="button button--icon" type="submit" aria-label="Search">
-					<svg width="25" height="33" viewBox="0 0 25 33" aria-hidden="true" focusable="”false”" style="display: block; margin: auto; height: 0.75em;">
-						<g transform="matrix(-1 0 0 1 21 -3)" fill="none" fill-rule="evenodd">
-							<path d="M8.069 18.237l2.015.54-3.473 12.962-2.016-.54L8.07 18.237zm2.015.54l2.016.54L8.627 32.28l-2.016-.54 3.473-12.962z" fill="currentColor"></path>
-							<ellipse stroke="currentColor" stroke-width="4" transform="rotate(15 11.502 12.378)" cx="11.502" cy="12.378" rx="7.391" ry="7.29"></ellipse>
+          <h3><code>aria-label</code></h3>
+          <ul>
+            <li>One way to provide an accessible name</li>
+            <li>Use where there is no visible text for an element</li>
+            <li>Doesn't work consistently on all elements</li>
+            <li>Will overwrite content: Use caution!</li>
+            <li>Format: <code>aria-label="value"</code></li>
+          </ul>
+          <aside class="notes">
+            <p>I think that's enough disclaimers for now, so let's jump into our ARIA labelling solutions.</p>
+            <p>The first technique we'll look at is using <code>aria-label</code>.</p>
+            <ol>
+              <li><code>aria-label</code> is one way to provide an accessible name, and that's true of all of our examples today.</li>
+              <li>Reach for <code>aria-label</code> when there's no visible text on the page that can be used as a label</li>
+              <li>Some words of caution: Aria labelling doesn't work consistently on all elements, so don't use it on a div or span. Only use it for elements that have an implicit or explicit role. No generic elements.</li>
+              <li>As we saw in the accessible name computation, adding an <code>aria-label</code> or <code>aria-labelledby</code> will overwrite any existing name. So use aria labelling with extreme caution.</li>
+              <li>And the format for <code>aria-label</code> is aria dash label equals and the whatever you want the accessible name to be in quotes.</li>
+            </ol>
+          <p>Let's look at an example.</p>
+        </aside>
+      </section>
+
+      <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+        <h4><code>aria-label</code> example</h4>
+        <div class="code-example aria-label-ex">
+          <button class="button button--icon" type="submit" aria-label="Search">
+          <svg width="25" height="33" viewBox="0 0 25 33" aria-hidden="true" focusable="”false”" style="display: block; margin: auto; height: 0.75em;">
+            <g transform="matrix(-1 0 0 1 21 -3)" fill="none" fill-rule="evenodd">
+              <path d="M8.069 18.237l2.015.54-3.473 12.962-2.016-.54L8.07 18.237zm2.015.54l2.016.54L8.627 32.28l-2.016-.54 3.473-12.962z" fill="currentColor"></path>
+              <ellipse stroke="currentColor" stroke-width="4" transform="rotate(15 11.502 12.378)" cx="11.502" cy="12.378" rx="7.391" ry="7.29"></ellipse>
 						</g>
 					</svg>
-				</button>
-			</div>
-        </section>
-        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h3><code>aria-labelledby</code></h3>
-            <ul>
-                <li>Use to associate visible text with the element</li>
-                <li>Format: <code>aria-labelledby="id1 id2 id3"</code> — space separated id values</li>
-            </ul>
-            <aside class="notes">
-                <p>Now let's look at <code>aria-labelledby</code>.</p>
-                <p>The main functional difference between <code>aria-label</code> and <code>aria-labelledby</code> is that you should use <code>aria-labelledby</code> when there is visible text on the page that could name the element.</p>
-                <p>And the format of <code>aria-labelledby</code> is <code>aria-labelledby</code> (with two L's) equals, and then in quotes, space separated id values. So in this example, I have aria dash labelledby equals "id1 (space) id2 (space) id3"</p>
-                <p>This should make more sense once we see it in action.</p>
-            </aside>
-        </section>
-        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h4><code>aria-labelledby</code> example</h4>
-			<div class="code-example aria-labelledby-ex">
-				<label for="search" id="search-label">Search</label><br>
-				<input id="search">
-				<button class="button button--icon" type="submit" aria-labelledby="search-label">
-					<svg width="25" height="33" viewBox="0 0 25 33" aria-hidden="true" focusable="”false”" style="display: block; margin: auto; height: 0.75em;">
-						<g transform="matrix(-1 0 0 1 21 -3)" fill="none" fill-rule="evenodd">
-							<path d="M8.069 18.237l2.015.54-3.473 12.962-2.016-.54L8.07 18.237zm2.015.54l2.016.54L8.627 32.28l-2.016-.54 3.473-12.962z" fill="currentColor"></path>
-							<ellipse stroke="currentColor" stroke-width="4" transform="rotate(15 11.502 12.378)" cx="11.502" cy="12.378" rx="7.391" ry="7.29"></ellipse>
-						</g>
-					</svg>
-				</button>
-			</div>
-        </section>
-        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h3><code>aria-describedby</code></h3>
-            <ul>
-                <li><q>An <a href="https://www.w3.org/TR/accname-1.1/#dfn-accessible-description">accessible description</a> provides additional information, related to an interface element, that complements the accessible name.</q></li>
-                <li><code>aria-describedby</code> is one way to provide an accessible description</li>
-                <li>Format: <code>aria-describedby="id1 id2 id3"</code> — space separated id values</li>
-            </ul>
-            <aside class="notes">
-                <p>Okay, next let's talk about the <code>aria-describedby</code> attribute.</p>
-                <p>Here's another quote from the W3C. All these links are available in the slides. <q>An aria description provides additional information, related to an interface element, that complements the accessible name.</q> </p>
-                <p><code>aria-describedby</code> is one way of adding an accessible description. An accessible description can be provided in addition to an accessible name. It doesn't replace it.</p>
-                <p>The format for <code>aria-describedby</code> is the same as <code>aria-labelledby</code>. It's aria dash describedby equals and then space separated id values.</p>
-            </aside>
-        </section>
-        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h4><code>aria-describedby</code> example</h4>
-			<div class="code-example password-example">
-				<label for="pw">Password</label><br>
-				<input aria-describedby="pw-reqs" type="text" name="password" id="pw"><br>
-				<small id="pw-reqs" class="popcolor">Must be at least 8 characters</small>
-			</div>
-        </section>
-        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h3>Labelling in widgets: ARIA pattern examples</h3>
-            <ul>
-                <li><a href="https://w3c.github.io/aria-practices/examples/dialog-modal/dialog.html">modal dialog</a></li>
-                <li><a href="https://w3c.github.io/aria-practices/examples/dialog-modal/alertdialog.html">alert dialog</a></li>
-                <li><a href="https://www.w3.org/TR/wai-aria-practices/examples/tabs/tabs-1/tabs.html">tabs</a></li>
-            </ul>
-        </section>
-        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h2>Other Considerations</h2>
-        </section>
-        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h3>Visible labels must be included in the accessible name</h3>
-			<div class="code-example label-not-descriptive">
-				<input aria-label="given name" type="text" id="given-name" autocomplete="given-name">
-				<input aria-label="family name" type="text" id="family-name" autocomplete="family-name">
-				<div>
-					<label>First Name</label>
-					<label>Last Name</label>
-				</div>
-			</div>
-        </section>
-        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h3>Title and placeholder</h3>
-			<div class="code-example label-not-descriptive">
-				<input aria-label="given name" type="text" id="given-name" autocomplete="given-name" placeholder="First Name" aria-placeholder="Please give us your first name" title="We won't store your information">
-			</div>
-        </section>
-        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h3 id="qwerty123">Accessible name computation hierarchy pop quiz</h3>
-            <button type="button" aria-label="Don't press me" aria-labelledby="qwerty123" title="AccessU 2022">Press me</button>
-        </section>
-        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h3>Four variations for one button</h3>
-            <button type="submit">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/735px-Magnifying_glass_icon.svg.png?20130526065603" alt="">
-                Search    
-            </button>
-            <button type="submit">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/735px-Magnifying_glass_icon.svg.png?20130526065603" alt="Search"> 
-            </button>
-            <button type="submit">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/735px-Magnifying_glass_icon.svg.png?20130526065603" alt="">
-                <span class="visually-hidden">Search</span>   
-            </button>
-            <button type="submit" aria-label="search">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/735px-Magnifying_glass_icon.svg.png?20130526065603" alt="">
-            </button>
-            <h4 id="123">Search</h4>
-            <button type="submit" aria-labelledby="123">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/735px-Magnifying_glass_icon.svg.png?20130526065603" alt=""> 
-            </button>
-        </section>       
-        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-            <h2>Thank you!</h2>
-                <p>Email me at <a href="mailto:aevans@tpgi.com">aevans@tpgi.com</a>.</p>
-                <p>Join me for <a href="https://knowbility.org/programs/air">AIR 2022</a>!</p>
-          </section>
+        </button>
+        </div>
+      </section>
 
+      <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+        <h3><code>aria-labelledby</code></h3>
+        <ul>
+          <li>Use to associate visible text with the element</li>
+          <li>Format: <code>aria-labelledby="id1 id2 id3"</code> — space separated id values</li>
+        </ul>
+        <aside class="notes">
+          <p>Now let's look at <code>aria-labelledby</code>.</p>
+          <p>The main functional difference between <code>aria-label</code> and <code>aria-labelledby</code> is that you should use <code>aria-labelledby</code> when there is visible text on the page that could name the element.</p>
+          <p>And the format of <code>aria-labelledby</code> is <code>aria-labelledby</code> (with two L's) equals, and then in quotes, space separated id values. So in this example, I have aria dash labelledby equals "id1 (space) id2 (space) id3"</p>
+          <p>This should make more sense once we see it in action.</p>
+        </aside>
+      </section>
 
+      <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+        <h4><code>aria-labelledby</code> example</h4>
+        <div class="code-example aria-labelledby-ex">
+          <label for="search" id="search-label">Search</label><br>
+          <input id="search">
+          <button class="button button--icon" type="submit" aria-labelledby="search-label">
+            <svg width="25" height="33" viewBox="0 0 25 33" aria-hidden="true" focusable="”false”" style="display: block; margin: auto; height: 0.75em;">
+              <g transform="matrix(-1 0 0 1 21 -3)" fill="none" fill-rule="evenodd">
+              <path d="M8.069 18.237l2.015.54-3.473 12.962-2.016-.54L8.07 18.237zm2.015.54l2.016.54L8.627 32.28l-2.016-.54 3.473-12.962z" fill="currentColor"></path>
+              <ellipse stroke="currentColor" stroke-width="4" transform="rotate(15 11.502 12.378)" cx="11.502" cy="12.378" rx="7.391" ry="7.29"></ellipse>
+              </g>
+            </svg>
+          </button>
+        </div>
+      </section>
 
+      <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+        <h3><code>aria-describedby</code></h3>
+        <ul>
+          <li><q>An <a href="https://www.w3.org/TR/accname-1.1/#dfn-accessible-description">accessible description</a> provides additional information, related to an interface element, that complements the accessible name.</q></li>
+          <li><code>aria-describedby</code> is one way to provide an accessible description</li>
+          <li>Format: <code>aria-describedby="id1 id2 id3"</code> — space separated id values</li>
+        </ul>
+        <aside class="notes">
+          <p>Okay, next let's talk about the <code>aria-describedby</code> attribute.</p>
+          <p>Here's another quote from the W3C. All these links are available in the slides. <q>An aria description provides additional information, related to an interface element, that complements the accessible name.</q> </p>
+          <p><code>aria-describedby</code> is one way of adding an accessible description. An accessible description can be provided in addition to an accessible name. It doesn't replace it.</p>
+          <p>The format for <code>aria-describedby</code> is the same as <code>aria-labelledby</code>. It's aria dash describedby equals and then space separated id values.</p>
+        </aside>
+      </section>
+      
+      <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+        <h4><code>aria-describedby</code> example</h4>
+        <div class="code-example password-example">
+          <label for="pw">Password</label><br>
+          <input aria-describedby="pw-reqs" type="text" name="password" id="pw"><br>
+          <small id="pw-reqs" class="popcolor">Must be at least 8 characters</small>
+        </div>
+      </section>
 
+      <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+        <h3>Labelling in widgets: ARIA pattern examples</h3>
+        <ul>
+          <li><a href="https://w3c.github.io/aria-practices/examples/dialog-modal/dialog.html">modal dialog</a></li>
+          <li><a href="https://w3c.github.io/aria-practices/examples/dialog-modal/alertdialog.html">alert dialog</a></li>
+          <li><a href="https://www.w3.org/TR/wai-aria-practices/examples/tabs/tabs-1/tabs.html">tabs</a></li>
+        </ul>
+      </section>
 
+      <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+        <h2>Other Considerations</h2>
+      </section>
+
+      <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+        <h3>Visible labels must be included in the accessible name</h3>
+        <div class="code-example label-not-descriptive">
+          <input aria-label="given name" type="text" id="given-name" autocomplete="given-name">
+          <input aria-label="family name" type="text" id="family-name" autocomplete="family-name">
+          <div>
+            <label>First Name</label>
+            <label>Last Name</label>
+          </div>
+        </div>
+      </section>
+
+      <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+        <h3>Title and placeholder</h3>
+        <div class="code-example label-not-descriptive">
+          <input aria-label="given name" type="text" id="given-name" autocomplete="given-name" placeholder="First Name" aria-placeholder="Please give us your first name" title="We won't store your information">
+        </div>
+      </section>
+
+      <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+        <h3 id="qwerty123">Accessible name computation hierarchy pop quiz</h3>
+        <div class="code-example">
+          <button type="button" aria-label="Don't press me" aria-labelledby="qwerty123" title="AccessU 2022">Press me</button>
+        </div>
+      </section>
+
+      <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+        <h3>Five variations for one button</h3>
+        <div class="code-example">
+          <button type="submit" class="image-button">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/735px-Magnifying_glass_icon.svg.png?20130526065603" alt="">
+            Search    
+          </button>
+          <button type="submit" class="image-button">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/735px-Magnifying_glass_icon.svg.png?20130526065603" alt="Search"> 
+          </button>
+          <button type="submit" class="image-button">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/735px-Magnifying_glass_icon.svg.png?20130526065603" alt=""><span class="visually-hidden">Search</span>   
+          </button>
+          <button type="submit" aria-label="search" class="image-button">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/735px-Magnifying_glass_icon.svg.png?20130526065603" alt="">
+          </button>
+          <h4 id="123" class="top-space">Search</h4>
+          <button type="submit" aria-labelledby="123" class="image-button">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/735px-Magnifying_glass_icon.svg.png?20130526065603" alt=""> 
+          </button>
+        </div>
+      </section>       
+
+      <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+        <h2>Thank you!</h2>
+        <p>Email me at <a href="mailto:aevans@tpgi.com">aevans@tpgi.com</a>.</p>
+        <p>Join me for <a href="https://knowbility.org/programs/air">AIR 2022</a>!</p>
+      </section>
     </div>
 
     <script src="./resources/reveal.js"></script>
