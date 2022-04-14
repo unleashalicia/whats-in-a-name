@@ -167,6 +167,14 @@ div.aria-labelledby-ex button {
 	cursor: pointer;
 }
 
+a.dark-link {
+	color: var(--purple);
+}
+
+a.dark-link:hover {
+	color: var(--purple-dark);
+}
+
 div.aria-labelledby-ex button {
 	padding: 12px 15px;
 }

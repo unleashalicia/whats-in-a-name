@@ -32,7 +32,7 @@
         <section style="top: 95px; display: block;" hidden="" aria-hidden="true" class="future">
           <h2>Hi! I'm Alicia Evans</h2>
           <img alt="Headshot of Alicia Evans, a fair skinned, dark haired woman with black-framed glasses." src="./resources/alicia-profile.png" class="float-right">
-          <p>Accessibility Consultant at TPGi, previously at Knowbility</p>
+          <p>Accessibility Engineer at TPGi, previously with Knowbility</p>
           <p>Pronouns: she, her, hers</p>
           <p>Current location: California, USA</p>
           <aside class="notes">
@@ -159,10 +159,10 @@
         </section>
 
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-          <h3>Labels that aren't<br>programmatically defined</h3>
+          <h3>Label that isn't <br>programmatically defined</h3>
           <div class="code-example prog-defined">
-            <p class="popcolor">Favorite Animal</p><br>
-            <input type="text" name="animal">
+            <p class="popcolor">Favorite Fruit</p><br>
+            <input type="text" name="fruit">
           </div>
           <aside class="notes">
             <p>Here is our first example, where labels aren't programmatically defined.</p>
@@ -180,10 +180,10 @@
         </section>
 
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-          <h3>Labels that are<br>programmatically defined</h3>
+          <h3>Label that is <br>programmatically defined</h3>
           <div class="code-example prog-defined">
-            <label for="fav-animal" class="popcolor">Favorite Animal</label><br>
-            <input type="text" name="animal" id="fav-animal">
+            <label for="fav-fruit" class="popcolor">Favorite Fruit</label><br>
+            <input type="text" name="fruit" id="fav-fruit">
           </div>
           <aside class="notes">
             <p>Now let's look at the same example again, but this time the label, "Favorite Animal," is within a programmatically associated <code>&lt;label&gt;</code>element.</p>
@@ -196,10 +196,6 @@
             <p>(Look at name in dev tools)</p>
             <p>(Show in screen reader)</p>
           </aside>
-        </section>
-
-        <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-          <h3>The accessible name computation hierarchy</h3>
         </section>
 
         <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
@@ -260,7 +256,7 @@
           <h2>CSS: visually-hidden text</h2>
           <ul>
             <li>Use <code>display:none</code> or <code>visibility:hidden</code> to hide content that should be hidden from everyone. Don't rely on opacity, hiding off-screen, or clipped text if the content should be hidden for all users</li>
-            <li>Use a <a href="https://www.a11yproject.com/posts/2013-01-11-how-to-hide-content/">visually-hidden</a> or similar class to hide content visually that adds context for screen reader users</li>
+            <li>Use a <a href="https://www.a11yproject.com/posts/2013-01-11-how-to-hide-content/">visually-hidden</a> or similar class to hide content visually that adds context for assistive technology users</li>
           </ul>
         </section>
 
@@ -289,7 +285,7 @@
           <h3>What is ARIA?</h3>
           <blockquote cite="./resources/saved_resource">
             <p>
-              WAI-ARIA, the Accessible Rich Internet Applications Suite, defines a way to make Web content and Web applications more accessible to people with disabilities. It especially helps with dynamic content and advanced user interface controls developed with HTML, JavaScript, and related technologies.
+              <a href="https://www.w3.org/WAI/standards-guidelines/aria/" class="dark-link">WAI-ARIA</a>, the Accessible Rich Internet Applications Suite, defines a way to make Web content and Web applications more accessible to people with disabilities. It especially helps with dynamic content and advanced user interface controls developed with HTML, JavaScript, and related technologies.
             </p>
           </blockquote>
           <aside class="notes">
@@ -449,7 +445,7 @@
       <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
         <h3 id="qwerty123">Accessible name computation hierarchy pop quiz</h3>
         <div class="code-example">
-          <button type="button" aria-label="Don't press me" aria-labelledby="qwerty123" title="AccessU 2022" onclick="alert('Looks like you did not pay attention to the aria-label!')">Press me</button>
+          <button type="button" aria-label="Don't press me" aria-labelledby="qwerty123" title="AccessU 2022" onclick="alert('What is my name???')">Press me</button>
         </div>
       </section>
 
