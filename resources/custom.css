@@ -206,7 +206,7 @@ input[type=radio], input[type=checkbox] {
 /* Start individual slide work */
 .accessible-example img {
   width: 25%;
-  float: right;
+	font-size: 30px;
 }
 
 .accessible-example input {
