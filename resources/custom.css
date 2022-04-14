@@ -253,3 +253,8 @@ button:focus,
 button:focus-within {
   background-color: var(--purple) !important;
 }
+
+.five-buttons button {
+  width: 4em;
+  height: 4em;
+}
