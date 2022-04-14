@@ -167,6 +167,14 @@ div.aria-labelledby-ex button {
 	cursor: pointer;
 }
 
+a.dark-link {
+	color: var(--purple);
+}
+
+a.dark-link:hover {
+	color: var(--purple-dark);
+}
+
 div.aria-labelledby-ex button {
 	padding: 12px 15px;
 }
@@ -206,7 +214,7 @@ input[type=radio], input[type=checkbox] {
 /* Start individual slide work */
 .accessible-example img {
   width: 25%;
-  float: right;
+	font-size: 30px;
 }
 
 .accessible-example input {
@@ -240,9 +248,8 @@ button {
   transition: background-color 0.2s;
 }
 
-div[role=button]:hover,
 button:hover,
 button:focus,
 button:focus-within {
-  background-color: var(--purple-dark) !important;
+  background-color: var(--purple) !important;
 }
