@@ -248,9 +248,8 @@ button {
   transition: background-color 0.2s;
 }
 
-div[role=button]:hover,
 button:hover,
 button:focus,
 button:focus-within {
-  background-color: var(--purple-dark) !important;
+  background-color: var(--purple) !important;
 }

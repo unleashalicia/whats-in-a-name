@@ -562,13 +562,6 @@ section.has-light-background h6 {
   }
 }
 
-.button:hover,
-.button:focus {
-  background-color: #08364e !important;
-  text-decoration: none;
-  color: #fff !important;
-}
-
 @media screen and (-ms-high-contrast: active) {
   .button:hover,
   .button:focus {

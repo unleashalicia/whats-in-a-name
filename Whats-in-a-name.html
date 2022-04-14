@@ -46,14 +46,13 @@
         <section style="top: 38.5px; display: block;" hidden="" aria-hidden="true" class="future">
           <h2>Agenda</h2>
           <ol>
-            <li>What are accessible names and why are they important?</li>
-            <li>How to make accessible names
-                <ol>
-                  <li>HTML</li>
-                  <li>CSS</li>
-                  <li>ARIA</li>
-                </ol>
-              </li>
+            <li>Why are accessible names important?</li>
+            <li>Visible labels</li>
+            <li>Accessible names</li>
+            <li>HTML solutions for accessible naming</li>
+            <li>CSS</li>
+            <li>ARIA</li>
+            <li>Other considerations</li>
           </ol>
         </section>
 
@@ -371,7 +370,7 @@
       </section>
 
       <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
-        <h4><code>aria-labelledby</code> example</h4>
+        <h4><code>aria-labelledby</code> example: search button</h4>
         <div class="code-example aria-labelledby-ex">
           <label for="search" id="search-label">Search</label><br>
           <input id="search">
@@ -383,6 +382,15 @@
               </g>
             </svg>
           </button>
+        </div>
+      </section>
+
+      <section style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future">
+        <h4><code>aria-labelledby</code> example: "Read More" links</h4>
+        <div class="code-example aria-labelledby-ex">
+            <h5 id="au-heading">AccessU 2022</h5>
+            <p>Accessible Design and Digital Inclusion Skills are more important than ever! AccessU 2022 is THE place to learn and connect: May 9th-12th</p>
+            <a href="https://knowbility.org/programs/accessu-2022" id="au-readmore" aria-labelledby="au-heading au-readmore">Read More</a>
         </div>
       </section>
 
@@ -460,7 +468,7 @@
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/735px-Magnifying_glass_icon.svg.png?20130526065603" alt="Search"> 
           </button>
           <button type="submit" class="image-button">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/735px-Magnifying_glass_icon.svg.png?20130526065603" alt=""><span class="visually-hidden">Search</span>   
+            <span class="visually-hidden">Search</span><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/735px-Magnifying_glass_icon.svg.png?20130526065603" alt="">   
           </button>
           <button type="submit" aria-label="search" class="image-button">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/735px-Magnifying_glass_icon.svg.png?20130526065603" alt="">
